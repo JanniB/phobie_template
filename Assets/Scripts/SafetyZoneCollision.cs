@@ -10,7 +10,8 @@ public class SafetyZoneCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fearObject = GameObject.FindWithTag("SpiderStep2");
+        fearObject = GameObject.FindWithTag("SpiderStep2"); //spezielles fearobjekt setzen je nach step
+
         cross = GameObject.FindWithTag("cross");
         fearObject.SetActive(false);
         //hier fearlevel festlegen je nach Angsteinschätzung, aus tutorial holen
