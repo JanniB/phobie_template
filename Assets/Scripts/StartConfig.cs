@@ -18,7 +18,7 @@ public class StartConfig : MonoBehaviour
 
     }
 
-    private void startConfigRoom()
+    public void startConfigRoom()
     {
         objectHandler.resetRoom();
         objectHandler.displayTutorialZone();

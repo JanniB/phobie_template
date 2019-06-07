@@ -6,13 +6,14 @@ public class GameObjectHandler: MonoBehaviour
 {
 
     //Level Objects
-   //GameObject startPositionMarker;
+    GameObject nextLevelZone;
     GameObject crossMarker;
+    GameObject startPositionZone;
     GameObject terrarium;
     GameObject tutorialZone;
 
     private List<GameObject> fearObjectList = new List<GameObject>();
-    public GameObject[] fearObjectsForList;
+    public GameObject[] fearObjects;
     public int currentFearObject = 0;
 
    
@@ -21,30 +22,30 @@ public class GameObjectHandler: MonoBehaviour
     void Start()
     {
         crossMarker = GameObject.FindWithTag("cross");
-        //startPositionMarker = GameObject.FindWithTag("startposition");
+        nextLevelZone = GameObject.FindWithTag("nextLevelZone");
+        startPositionZone = GameObject.FindWithTag("startPositionZone");
         terrarium = GameObject.FindWithTag("terrarium");
         tutorialZone = GameObject.FindWithTag("tutorialzone");
-        fearObjectsForList = GameObject.FindGameObjectsWithTag("fearobject");
+        fearObjects = GameObject.FindGameObjectsWithTag("fearobject");
 
-        foreach (GameObject g in fearObjectsForList)
+        foreach (GameObject g in fearObjects)
         {
-            g.SetActive(false);
             fearObjectList.Add(g);
+            Debug.Log("Anzahl Angstobjekte: " + fearObjectList.Count);
         }
-        Debug.Log("Anzahl Angstobjekte: " + fearObjectList.Count);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //Debug.Log("current fear obejct: " + currentFearObject);
     }
 
 
     public void resetRoom()
     {
         this.crossMarker.SetActive(false);
-        //this.startPositionMarker.SetActive(false);
+        this.nextLevelZone.SetActive(false);
         this.terrarium.SetActive(false);
         this.hideAllFearObjects();
     }
@@ -54,17 +55,22 @@ public class GameObjectHandler: MonoBehaviour
         this.tutorialZone.SetActive(true);
     }
 
-    void displayCrossMarker()
+    public void displayCrossMarker()
     {
         this.crossMarker.SetActive(true);
     }
 
-    void displayStartPositionMarker()
+    public void displayStartPositionZone()
     {
-        //this.startPositionMarker.SetActive(true);
+        this.startPositionZone.SetActive(true);
     }
 
-    void displayTerrarium()
+    public void displayNextLevelZone()
+    {
+        this.nextLevelZone.SetActive(true);
+    }
+
+    public void displayTerrarium()
     {
         this.terrarium.SetActive(true);
     }
@@ -73,7 +79,7 @@ public class GameObjectHandler: MonoBehaviour
     /*
      * FearObjects
     */
-    void hideAllFearObjects()
+    public void hideAllFearObjects()
     {
         foreach (GameObject g in fearObjectList)
         {
@@ -94,25 +100,21 @@ public class GameObjectHandler: MonoBehaviour
     public void setCurrentFearObject(int level)
     {
         currentFearObject = level;
+        if (currentFearObject == fearObjectList.Count)
+        {
+            Debug.Log("Congratulations, you finished therapy!");
+        }
+        else
+        {
+            fearObjects[0].SetActive(true);
+            fearObjects[currentFearObject].SetActive(true);
+            Debug.Log("current fear Object set to: " + currentFearObject);
+        }
     }
 
     public int getFearObjectCount()
     {
         return fearObjectList.Count;
-    }
-
-    public void nextFearObject(int currentfo)
-    {
-        if (currentfo == fearObjectList.Count)
-        {
-            //TODO display endscreen
-        }
-        else
-        {
-            currentFearObject++;
-            fearObjectList[currentFearObject].SetActive(true);
-        }
-        Debug.Log("current FearObject: " + currentFearObject);
     }
 
 }

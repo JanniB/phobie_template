@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SafetyZoneCollision : MonoBehaviour
+public class TherapyZoneCollision : MonoBehaviour
 {
     //public GameObject fearObject;
     public GameObject cross;
     public TutorialZoneCollision tutorialZoneCollision;
-    public NextLevelZoneCollision nextLevelZoneCollision;
+    public LevelManager levelManager;
+    public GameObject tutorialZone;
     public int aktuellerStep;
 
     // Start is called before the first frame update
@@ -15,8 +16,10 @@ public class SafetyZoneCollision : MonoBehaviour
     {
         //aktuellerStep = tutorialZoneCollision.startLevel;
         //fearObject = GameObject.FindWithTag("SpiderStep2"); //spezielles fearobjekt setzen je nach step
+        levelManager.callNextLevel(levelManager.getLevel());
 
         cross = GameObject.FindWithTag("cross");
+        tutorialZone = GameObject.FindWithTag("tutorialzone");
         //fearObject.SetActive(false);
         //hier fearlevel festlegen je nach Angsteinschätzung, aus tutorial holen
 
@@ -32,19 +35,15 @@ public class SafetyZoneCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //nextLevelZoneCollision.setStep();
         Debug.Log("entered Therapiezone");
-        //fearObject.SetActive(true);
-        cross.SetActive(false);
+        tutorialZone.SetActive(false);
+        levelManager.callNextLevel(levelManager.getLevel());
     }
 
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("entered Safety Area");
         //step muss einen zähler zurück gesetzt werden
-        //fearObject.SetActive(false);
-        cross.SetActive(true);
-
        //clear all steps
     }
 
