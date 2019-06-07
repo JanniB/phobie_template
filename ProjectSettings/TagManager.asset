@@ -13,6 +13,7 @@ TagManager:
   - cross
   - terrarium
   - nextLevelZone
+  - tutorialzone
   layers:
   - Default
   - TransparentFX

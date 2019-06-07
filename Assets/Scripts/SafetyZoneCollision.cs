@@ -13,7 +13,7 @@ public class SafetyZoneCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        aktuellerStep = tutorialZoneCollision.startLevel;
+        //aktuellerStep = tutorialZoneCollision.startLevel;
         //fearObject = GameObject.FindWithTag("SpiderStep2"); //spezielles fearobjekt setzen je nach step
 
         cross = GameObject.FindWithTag("cross");
@@ -32,7 +32,7 @@ public class SafetyZoneCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        nextLevelZoneCollision.setStep();
+        //nextLevelZoneCollision.setStep();
         Debug.Log("entered Therapiezone");
         //fearObject.SetActive(true);
         cross.SetActive(false);
