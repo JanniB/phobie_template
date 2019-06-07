@@ -25,12 +25,21 @@ public class StartPositionZoneCollision : MonoBehaviour
         therapyZoneCol.levelIsRunning = true;
         Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
         //timeout 3s
-        levelManager.callNextLevel(levelManager.getLevel());
+        StartCoroutine(WaitCallNextLevel());
+        //levelManager.callNextLevel(levelManager.getLevel());
+
     }
 
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("exit StartPositionZone");
         //wird ausgeblendet in startConfigRoom daher nie aufgerufen
+    }
+
+    IEnumerator WaitCallNextLevel()
+    {
+        yield return new WaitForSeconds(5);
+        Debug.Log("5 seconds passed");
+        levelManager.callNextLevel(levelManager.getLevel());
     }
 }

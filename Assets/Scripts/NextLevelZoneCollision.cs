@@ -26,12 +26,20 @@ public class NextLevelZoneCollision : MonoBehaviour
         therapyZoneCol.levelIsRunning = false;
         Debug.Log("level is not running" + therapyZoneCol.levelIsRunning);
         //3s
-        startConfig.configRoom();
+        StartCoroutine(WaitCallNextLevel());
+       //startConfig.configRoom();
     }
 
     private void OnTriggerExit(Collider other)
     {
         //wird ausgeblendet in startConfigRoom daher nie aufgerufen
         Debug.Log("exit NextLevelZone");
+    }
+
+    IEnumerator WaitCallNextLevel()
+    {
+        yield return new WaitForSeconds(5);
+        Debug.Log("5 seconds passed");
+        startConfig.configRoom();
     }
 }
