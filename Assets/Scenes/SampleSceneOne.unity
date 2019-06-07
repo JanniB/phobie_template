@@ -2043,8 +2043,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80374332df4ca476ea5047d76a95c951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: 1
   objectHandler: {fileID: 629396810}
+  nextLevelZoneCollision: {fileID: 0}
+  startZoneCollision: {fileID: 0}
+  startConfig: {fileID: 0}
 --- !u!136 &582287525
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2074,13 +2077,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582287522}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 851df4bcffbe247b9a4fefe97a88a95a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d19f66ac078a49978c69955fc07a9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enteringStartZone: 0
   levelManager: {fileID: 582287524}
-  startConfiguration: {fileID: 629396808}
+  objectHandler: {fileID: 629396810}
 --- !u!4 &616737342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013889601590, guid: 4d293c8e162f3874b982baadd71153d2,
@@ -2202,6 +2206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de8298050286476aaf9507d1e2ccbb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPositionZone: {fileID: 0}
   fearObjects: []
   currentFearObject: 0
 --- !u!1 &650813924
@@ -2251,6 +2256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de8298050286476aaf9507d1e2ccbb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPositionZone: {fileID: 0}
   fearObjects: []
   currentFearObject: 0
 --- !u!1 &660426206
@@ -3714,6 +3720,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   objectHandler: {fileID: 629396810}
+  nextLevelZoneCollision: {fileID: 0}
+  startZoneCollision: {fileID: 0}
+  startConfig: {fileID: 0}
 --- !u!114 &1007683437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3729,6 +3738,7 @@ MonoBehaviour:
   cross: {fileID: 2089659739}
   tutorialZoneCollision: {fileID: 769728202}
   levelManager: {fileID: 1007683436}
+  startConfig: {fileID: 629396808}
   tutorialZone: {fileID: 769728200}
   aktuellerStep: 0
 --- !u!1 &1025747156
@@ -6511,13 +6521,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841482715}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 851df4bcffbe247b9a4fefe97a88a95a, type: 3}
+  m_Script: {fileID: 11500000, guid: b9bd80ef91e7242679d0059521fb0749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enteringNextLevel: 0
   levelManager: {fileID: 1841482720}
-  startConfiguration: {fileID: 629396808}
+  startConfig: {fileID: 629396808}
+  objectHandler: {fileID: 629396810}
 --- !u!114 &1841482720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6532,6 +6544,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   objectHandler: {fileID: 629396810}
+  nextLevelZoneCollision: {fileID: 1841482719}
+  startZoneCollision: {fileID: 582287527}
+  startConfig: {fileID: 629396808}
 --- !u!1001 &1843751425
 PrefabInstance:
   m_ObjectHideFlags: 0

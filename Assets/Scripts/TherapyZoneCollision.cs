@@ -8,14 +8,13 @@ public class TherapyZoneCollision : MonoBehaviour
     public GameObject cross;
     public TutorialZoneCollision tutorialZoneCollision;
     public LevelManager levelManager;
+    public StartConfig startConfig;
     public GameObject tutorialZone;
     public int aktuellerStep;
 
     // Start is called before the first frame update
     void Start()
     {
-        //aktuellerStep = tutorialZoneCollision.startLevel;
-        //fearObject = GameObject.FindWithTag("SpiderStep2"); //spezielles fearobjekt setzen je nach step
         levelManager.callNextLevel(levelManager.getLevel());
 
         cross = GameObject.FindWithTag("cross");
@@ -37,14 +36,15 @@ public class TherapyZoneCollision : MonoBehaviour
     {
         Debug.Log("entered Therapiezone");
         tutorialZone.SetActive(false);
-        levelManager.callNextLevel(levelManager.getLevel());
     }
 
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("entered Safety Area");
+        startConfig.startConfigRoom();
+
         //step muss einen zähler zurück gesetzt werden
-       //clear all steps
+        //clear all steps
     }
 
     //Buttons anvisieren, next level holen: public int nextStep; public NextLevelZoneCollision nextLevelZone = new NextLevelZoneCollision();

@@ -34,11 +34,12 @@ public class TutorialZoneCollision : MonoBehaviour
     {
         Debug.Log("Entered Tutorialzone");
         calculateStartLevel();
+        objectHandler.displayStartPositionZone();
     }
 
     private void OnTriggerExit(Collider other)
     {
-       Debug.Log("Left Tutorialzone");
+        Debug.Log("Left Tutorialzone");
 
     }
 

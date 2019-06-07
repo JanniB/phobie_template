@@ -8,7 +8,7 @@ public class GameObjectHandler: MonoBehaviour
     //Level Objects
     GameObject nextLevelZone;
     GameObject crossMarker;
-    GameObject startPositionZone;
+    public GameObject startPositionZone;
     GameObject terrarium;
     GameObject tutorialZone;
 

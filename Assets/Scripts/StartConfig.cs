@@ -22,5 +22,14 @@ public class StartConfig : MonoBehaviour
     {
         objectHandler.resetRoom();
         objectHandler.displayTutorialZone();
+        objectHandler.startPositionZone.SetActive(false);
+
+    }
+
+    public void configRoom()
+    {
+        objectHandler.resetRoom();
+        objectHandler.startPositionZone.SetActive(true);
+
     }
 }
