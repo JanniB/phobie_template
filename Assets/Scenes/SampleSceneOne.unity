@@ -2024,7 +2024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582287522}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -54.19, y: -1.5580001, z: -50.64}
+  m_LocalPosition: {x: -54.65, y: -1.5580001, z: -51.1}
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children:
   - {fileID: 1753904763}
@@ -2043,7 +2043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80374332df4ca476ea5047d76a95c951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
   objectHandler: {fileID: 629396810}
   nextLevelZoneCollision: {fileID: 0}
   startZoneCollision: {fileID: 0}
@@ -2082,8 +2081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d19f66ac078a49978c69955fc07a9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteringStartZone: 0
   levelManager: {fileID: 582287524}
+  therapyZoneCol: {fileID: 1007683437}
   objectHandler: {fileID: 629396810}
 --- !u!4 &616737342 stripped
 Transform:
@@ -2234,7 +2233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650813924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -52.401997, y: -2.065, z: -48.850998}
+  m_LocalPosition: {x: -52.11, y: -2.065, z: -48.56}
   m_LocalScale: {x: 0.7, y: 1, z: 0.7}
   m_Children:
   - {fileID: 1096162175}
@@ -2617,6 +2616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 1007683436}
   objectHandler: {fileID: 629396810}
+  tutorialZone: {fileID: 0}
   fearRes: 0
 --- !u!65 &769728203
 BoxCollider:
@@ -3456,7 +3456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943475067}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -53.2, y: -2.0590003, z: -49.65}
+  m_LocalPosition: {x: -52.84, y: -2.0590003, z: -49.29}
   m_LocalScale: {x: 0.20000002, y: 1, z: 0.45}
   m_Children:
   - {fileID: 1007683434}
@@ -3718,11 +3718,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80374332df4ca476ea5047d76a95c951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   objectHandler: {fileID: 629396810}
   nextLevelZoneCollision: {fileID: 0}
-  startZoneCollision: {fileID: 0}
-  startConfig: {fileID: 0}
+  startZoneCollision: {fileID: 582287527}
+  startConfig: {fileID: 629396808}
 --- !u!114 &1007683437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3739,8 +3738,11 @@ MonoBehaviour:
   tutorialZoneCollision: {fileID: 769728202}
   levelManager: {fileID: 1007683436}
   startConfig: {fileID: 629396808}
+  startzoneCol: {fileID: 582287527}
+  nextlevelCol: {fileID: 1841482719}
   tutorialZone: {fileID: 769728200}
   aktuellerStep: 0
+  levelIsRunning: 0
 --- !u!1 &1025747156
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,7 +5369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573943659}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -50.802, y: -1.8200002, z: -47.251}
+  m_LocalPosition: {x: -50.510002, y: -1.8200002, z: -46.960003}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 2089659743}
@@ -6485,7 +6487,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841482715}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -52.499, y: -1.5580001, z: -48.948}
+  m_LocalPosition: {x: -52.207005, y: -1.5580001, z: -48.657005}
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children:
   - {fileID: 1707827654}
@@ -6526,8 +6528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bd80ef91e7242679d0059521fb0749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enteringNextLevel: 0
   levelManager: {fileID: 1841482720}
+  startzoneCol: {fileID: 582287527}
+  therapyZoneCol: {fileID: 1007683437}
   startConfig: {fileID: 629396808}
   objectHandler: {fileID: 629396810}
 --- !u!114 &1841482720
@@ -6542,7 +6545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80374332df4ca476ea5047d76a95c951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   objectHandler: {fileID: 629396810}
   nextLevelZoneCollision: {fileID: 1841482719}
   startZoneCollision: {fileID: 582287527}

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class NextLevelZoneCollision : MonoBehaviour
 {
-    public bool enteringNextLevel = false;
     public LevelManager levelManager;
+    public StartPositionZoneCollision startzoneCol;
+    public TherapyZoneCollision therapyZoneCol;
     public StartConfig startConfig;
     public GameObjectHandler objectHandler;
 
@@ -22,9 +23,10 @@ public class NextLevelZoneCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entered NextLevelZone");
-       //3s timeout
-       startConfig.configRoom();
+        therapyZoneCol.levelIsRunning = false;
+        Debug.Log("level is not running" + therapyZoneCol.levelIsRunning);
+        //3s
+        startConfig.configRoom();
     }
 
     private void OnTriggerExit(Collider other)

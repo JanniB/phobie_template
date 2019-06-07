@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StartPositionZoneCollision : MonoBehaviour
 {
-    public bool enteringStartZone = false;
     public LevelManager levelManager;
+    public TherapyZoneCollision therapyZoneCol;
     public GameObjectHandler objectHandler;
 
     // Start is called before the first frame update
@@ -21,9 +21,10 @@ public class StartPositionZoneCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entered StartPositionZone + Level: " + levelManager.getLevel());
-        enteringStartZone = true;
-
+        Debug.Log("entered startzone + level: " + levelManager.getLevel());
+        therapyZoneCol.levelIsRunning = true;
+        Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
+        //timeout 3s
         levelManager.callNextLevel(levelManager.getLevel());
     }
 
@@ -31,7 +32,5 @@ public class StartPositionZoneCollision : MonoBehaviour
     {
         Debug.Log("exit StartPositionZone");
         //wird ausgeblendet in startConfigRoom daher nie aufgerufen
-        enteringStartZone = false;
-
     }
 }

@@ -6,19 +6,22 @@ public class TherapyZoneCollision : MonoBehaviour
 {
     //public GameObject fearObject;
     public GameObject cross;
-    public TutorialZoneCollision tutorialZoneCollision;
+    //public TutorialZoneCollision tutorialZoneCollision;
     public LevelManager levelManager;
     public StartConfig startConfig;
-    public GameObject tutorialZone;
+    public StartPositionZoneCollision startzoneCol;
+    public NextLevelZoneCollision nextlevelCol;
+    //public GameObject tutorialZone;
     public int aktuellerStep;
+    public bool levelIsRunning;
 
     // Start is called before the first frame update
     void Start()
     {
-        levelManager.callNextLevel(levelManager.getLevel());
+        //levelManager.callNextLevel(levelManager.getLevel());
 
         cross = GameObject.FindWithTag("cross");
-        tutorialZone = GameObject.FindWithTag("tutorialzone");
+        //tutorialZone = GameObject.FindWithTag("tutorialzone");
         //fearObject.SetActive(false);
         //hier fearlevel festlegen je nach Angsteinschätzung, aus tutorial holen
 
@@ -31,17 +34,30 @@ public class TherapyZoneCollision : MonoBehaviour
 
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("entered Therapiezone");
-        tutorialZone.SetActive(false);
+        if(levelIsRunning == true)
+        {
+            int levelrunning = levelManager.getLevel()-1;
+            Debug.Log("level is running" + levelrunning);
+            levelManager.callNextLevel(levelrunning);
+        }
+        else if (levelIsRunning == false)
+        {
+            startConfig.configRoom();
+            levelManager.setLevel(levelManager.getLevel() + 1);
+            Debug.Log("level is not running");
+
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
+
         Debug.Log("entered Safety Area");
-        startConfig.startConfigRoom();
+        startConfig.configRoom();
 
         //step muss einen zähler zurück gesetzt werden
         //clear all steps

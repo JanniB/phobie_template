@@ -14,17 +14,6 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Aktuelles Level in LM: " + level);
-        //callNextLevel(level);
-        /*if (startZoneCollision.enteringStartZone == true)
-        {
-            Debug.Log("start zone collision");
-            callNextLevel(level);
-        }
-        else if (startZoneCollision.enteringStartZone == true)
-        {
-            Debug.Log("start zone collision");
-            callNextLevel(level);
-        }*/
     }
 
     // Update is called once per frame
@@ -47,23 +36,23 @@ public class LevelManager : MonoBehaviour
 
    
     public void callNextLevel(int l) {
+        level = l;
         switch (l)
         {
             case 1:
                 Debug.Log("Level " + level + l + "loading");
                 objectHandler.displayTerrarium();
                 objectHandler.displayCrossMarker();
-                //objectHandler.displayStartPositionZone();
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
                 level++;
                 Debug.Log("set next level to " + level);
                 break;
             case 2:
+
                 Debug.Log("Level " + level + l + "loading");
                 objectHandler.displayTerrarium();
                 objectHandler.displayCrossMarker();
-                //objectHandler.displayStartPositionZone();
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
                 level++;
@@ -72,17 +61,14 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("Level " + level + "loading");
                 objectHandler.displayTerrarium();
                 objectHandler.displayCrossMarker();
-                objectHandler.displayStartPositionZone();
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
                 level++;
-
                 break;
             case 4:
                 Debug.Log("Level " + level + "loading");
                 objectHandler.displayTerrarium();
                 objectHandler.displayCrossMarker();
-                objectHandler.displayStartPositionZone();
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
                 level++;
