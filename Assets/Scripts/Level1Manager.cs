@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Level1Manager : MonoBehaviour
 {
-    public GameObject fearObject;
+    //public GameObject fearObject;
     public Vector3 startposition;
-    public GameObject spiderStep3;
+
+    //Spider objects
+    public GameObject spiderStep1;
     public GameObject spiderStep2;
+    public GameObject spiderStep3;
+    public GameObject spiderStep4;
+
 
     //public GameObject nextLevelZone;
     //public int nextStep = 1;
@@ -18,16 +23,25 @@ public class Level1Manager : MonoBehaviour
     {
         Debug.Log("aufruf l1");
 
-        //terrarium einblenden
+        //show terrarium
         GameObject terrarium = GameObject.FindWithTag("terrarium");
         terrarium.SetActive(true);
 
+        //hide all spider objects
+        spiderStep1 = GameObject.FindWithTag("SpiderStep1");
+        spiderStep1.SetActive(false);
+        spiderStep2 = GameObject.FindWithTag("SpiderStep2");
+        spiderStep2.SetActive(false);
         spiderStep3 = GameObject.FindWithTag("SpiderStep3");
         spiderStep3.SetActive(false);
+        spiderStep4 = GameObject.FindWithTag("SpiderStep4");
+        spiderStep4.SetActive(false);
+
+
         //nextLevelZone = GameObject.FindWithTag("nextLevelZone");
         //nextLevelZone.SetActive(true);
 
-        // startposition zuweisen
+        //set startposition
         setStartPosition();
     }
 
@@ -44,42 +58,39 @@ public class Level1Manager : MonoBehaviour
     public void setStep1(){
         Debug.Log("setStep1");
         setStartPosition();
-        //clearSteps();
-        fearObject = GameObject.FindWithTag("SpiderStep1");
-        fearObject.SetActive(true);
+        clearSteps();
+        spiderStep1.SetActive(true);
     }
 
     public void setStep2()
     {
         Debug.Log("setStep2");
         setStartPosition();
-        //clearSteps();
-        fearObject = GameObject.FindWithTag("SpiderStep2");
-        fearObject.SetActive(true);
+        clearSteps();
+        spiderStep2.SetActive(true);
     }
 
     public void setStep3()
     {
         Debug.Log("setStep3");
         setStartPosition();
-        //clearSteps();
-        //fearObject = GameObject.FindWithTag("SpiderStep3");
-        spiderStep2 = GameObject.FindWithTag("SpiderStep2");
-        spiderStep2.SetActive(false);
+        clearSteps();
+        spiderStep3.SetActive(true);
     }
 
     public void setStep4()
     {
         Debug.Log("setStep4");
         setStartPosition();
-        //clearSteps();
-        spiderStep3.SetActive(true);
-        //fearObject = GameObject.FindWithTag("SpiderStep4");
-        //fearObject.SetActive(true);
+        clearSteps();
+        spiderStep4.SetActive(true);
     }
 
     void clearSteps(){
         Debug.Log("clear steps");
-        fearObject.SetActive(false);
+        spiderStep1.SetActive(false);
+        spiderStep2.SetActive(false);
+        spiderStep3.SetActive(false);
+        spiderStep4.SetActive(false);
     }
 }
