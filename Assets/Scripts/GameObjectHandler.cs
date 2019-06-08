@@ -6,13 +6,13 @@ public class GameObjectHandler: MonoBehaviour
 {
 
     //Level Objects
-    GameObject nextLevelZone;
-    GameObject crossMarker;
+    public GameObject nextLevelZone;
+    public GameObject crossMarker;
     public GameObject startPositionZone;
-    GameObject terrarium;
-    GameObject tutorialZone;
+    public GameObject terrarium;
+    public GameObject tutorialZone;
 
-    private List<GameObject> fearObjectList = new List<GameObject>();
+    public List<GameObject> fearObjectList = new List<GameObject>();
     public GameObject[] fearObjects;
     public int currentFearObject = 0;
 
@@ -21,17 +21,18 @@ public class GameObjectHandler: MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        crossMarker = GameObject.FindWithTag("cross");
-        nextLevelZone = GameObject.FindWithTag("nextLevelZone");
-        startPositionZone = GameObject.FindWithTag("startPositionZone");
-        terrarium = GameObject.FindWithTag("terrarium");
-        tutorialZone = GameObject.FindWithTag("tutorialzone");
+        //crossMarker = GameObject.FindWithTag("cross");
+        //nextLevelZone = GameObject.FindWithTag("nextLevelZone");
+        //startPositionZone = GameObject.FindWithTag("startPositionZone");
+        //terrarium = GameObject.FindWithTag("terrarium");
+        //tutorialZone = GameObject.FindWithTag("tutorialzone");
         fearObjects = GameObject.FindGameObjectsWithTag("fearobject");
 
         foreach (GameObject g in fearObjects)
         {
             fearObjectList.Add(g);
             Debug.Log("Anzahl Angstobjekte: " + fearObjectList.Count);
+            g.SetActive(false);
         }
     }
 
@@ -47,7 +48,7 @@ public class GameObjectHandler: MonoBehaviour
         this.crossMarker.SetActive(false);
         this.nextLevelZone.SetActive(false);
         this.terrarium.SetActive(false);
-        this.hideAllFearObjects();
+        hideAllFearObjects();
     }
 
     public void displayTutorialZone()
