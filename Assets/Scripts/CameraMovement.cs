@@ -5,7 +5,7 @@
 public class CameraMovement : MonoBehaviour
     {
         Vector3 lastPos = Vector3.zero;
-    public float speed = 0.4f;
+    public float speed = 1.4f;
 
         // Start is called before the first frame update
         void Start()
