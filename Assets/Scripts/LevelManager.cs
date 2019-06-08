@@ -41,10 +41,10 @@ public class LevelManager : MonoBehaviour
         {
             case 1:
                 Debug.Log("Level " + level + l + "loading");
+                objectHandler.setCurrentFearObject(level);
                 objectHandler.displayTerrarium();
                 objectHandler.displayCrossMarker();
                 objectHandler.displayNextLevelZone();
-                objectHandler.setCurrentFearObject(level);
                 level++;
                 Debug.Log("set next level to " + level);
                 break;

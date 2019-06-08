@@ -9,6 +9,7 @@ public class NextLevelZoneCollision : MonoBehaviour
     public TherapyZoneCollision therapyZoneCol;
     public StartConfig startConfig;
     public GameObjectHandler objectHandler;
+    bool isWaiting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +27,14 @@ public class NextLevelZoneCollision : MonoBehaviour
         therapyZoneCol.levelIsRunning = false;
         Debug.Log("level is not running" + therapyZoneCol.levelIsRunning);
         //3s
+        isWaiting = true;
         StartCoroutine(WaitCallNextLevel());
        //startConfig.configRoom();
     }
 
     private void OnTriggerExit(Collider other)
     {
+        isWaiting = false;
         //wird ausgeblendet in startConfigRoom daher nie aufgerufen
         Debug.Log("exit NextLevelZone");
     }
@@ -40,6 +43,9 @@ public class NextLevelZoneCollision : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Debug.Log("5 seconds passed");
-        startConfig.configRoom();
+        if (isWaiting)
+        {
+            startConfig.configRoom();
+        }
     }
 }
