@@ -46,7 +46,7 @@ public class TherapyZoneCollision : MonoBehaviour
         else if (levelIsRunning == false)
         {
             startConfig.configRoom();
-            levelManager.setLevel(levelManager.getLevel() + 1);
+            levelManager.setLevel(levelManager.getLevel());
             Debug.Log("level is not running");
 
         }

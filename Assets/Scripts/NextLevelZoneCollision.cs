@@ -24,8 +24,6 @@ public class NextLevelZoneCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        therapyZoneCol.levelIsRunning = false;
-        Debug.Log("level is not running" + therapyZoneCol.levelIsRunning);
         //3s
         isWaiting = true;
         StartCoroutine(WaitCallNextLevel());
@@ -46,6 +44,9 @@ public class NextLevelZoneCollision : MonoBehaviour
         if (isWaiting)
         {
             startConfig.configRoom();
+            therapyZoneCol.levelIsRunning = false;
+            Debug.Log("level is not running" + therapyZoneCol.levelIsRunning);
         }
+       
     }
 }

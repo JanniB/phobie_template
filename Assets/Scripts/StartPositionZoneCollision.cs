@@ -23,8 +23,6 @@ public class StartPositionZoneCollision : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("entered startzone + level: " + levelManager.getLevel());
-        therapyZoneCol.levelIsRunning = true;
-        Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
         //timeout 3s
         isWaiting = true;
         StartCoroutine(WaitCallNextLevel());
@@ -45,7 +43,8 @@ public class StartPositionZoneCollision : MonoBehaviour
         if (isWaiting)
         {
             levelManager.callNextLevel(levelManager.getLevel());
-
+            therapyZoneCol.levelIsRunning = true;
+            Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
         }
     }
 }
