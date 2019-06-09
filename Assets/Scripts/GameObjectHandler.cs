@@ -11,6 +11,7 @@ public class GameObjectHandler: MonoBehaviour
     public GameObject startPositionZone;
     public GameObject terrarium;
     public GameObject tutorialZone;
+    public GameObject subjectiveFear;
 
     public List<GameObject> fearObjectList = new List<GameObject>();
     public GameObject[] fearObjects;
@@ -74,6 +75,11 @@ public class GameObjectHandler: MonoBehaviour
     public void displayTerrarium()
     {
         this.terrarium.SetActive(true);
+    }
+
+    public void displaySubjectiveFear()
+    {
+        this.subjectiveFear.SetActive(true);
     }
 
 

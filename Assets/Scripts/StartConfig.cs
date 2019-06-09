@@ -23,7 +23,7 @@ public class StartConfig : MonoBehaviour
         objectHandler.resetRoom();
         objectHandler.displayTutorialZone();
         objectHandler.startPositionZone.SetActive(false);
-
+        objectHandler.displaySubjectiveFear();
     }
 
     public void configRoom()

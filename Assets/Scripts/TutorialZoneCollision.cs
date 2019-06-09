@@ -7,6 +7,7 @@ public class TutorialZoneCollision : MonoBehaviour
     public LevelManager levelManager;
     public GameObjectHandler objectHandler;
     public GameObject tutorialZone;
+    FearManager fearManager;
     public int fearRes;
 
     // Start is called before the first frame update
@@ -23,20 +24,18 @@ public class TutorialZoneCollision : MonoBehaviour
 
     }
 
-    // berechnen subjektiver + objekter Angstparameter 
-    // Startlevel (LevelManager) anhand des Werts zuweisen
-    public void calculateStartLevel() {
-        //TODO if wert > < x dann setLevel. Zahl runden
-        fearRes = 1;
-        levelManager.setLevel(fearRes);
-        Debug.Log("Set startlevel to" + fearRes  + " " + levelManager.getLevel());
-    }
+  
+       // levelManager.setLevel(fearRes);
+        //Debug.Log("Set startlevel to" + fearRes + " " + levelManager.getLevel());
+       
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Entered Tutorialzone");
-        calculateStartLevel();
         objectHandler.displayStartPositionZone();
+        //objective Fear display
     }
 
     private void OnTriggerExit(Collider other)
