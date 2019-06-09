@@ -11,13 +11,14 @@ public class GameObjectHandler: MonoBehaviour
     public GameObject startPositionZone;
     public GameObject terrarium;
     public GameObject tutorialZone;
-    public GameObject subjectiveFear;
+ 
 
     public List<GameObject> fearObjectList = new List<GameObject>();
     public GameObject[] fearObjects;
     public int currentFearObject = 0;
 
-   
+    public GameObject subjectiveFear;
+
 
     // Use this for initialization
     void Start()
@@ -28,6 +29,7 @@ public class GameObjectHandler: MonoBehaviour
         //terrarium = GameObject.FindWithTag("terrarium");
         //tutorialZone = GameObject.FindWithTag("tutorialzone");
         fearObjects = GameObject.FindGameObjectsWithTag("fearobject");
+        //subjectiveFear = GameObject.FindGameObjectWithTag("fearGates");
 
         foreach (GameObject g in fearObjects)
         {

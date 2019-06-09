@@ -19,6 +19,8 @@ TagManager:
   - fearlevel1
   - fearlevel2
   - fearlevel3
+  - fearDistance
+  - fearGates
   layers:
   - Default
   - TransparentFX

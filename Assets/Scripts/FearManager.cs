@@ -4,7 +4,8 @@ using System.Collections;
 public class FearManager : MonoBehaviour
 {
 
-   //public LevelManager levelManager;
+    //public LevelManager levelManager;
+    GameObjectHandler gameObjectHandler;
     GameObject fear1;
     GameObject fear2;
     GameObject fear3;
@@ -18,10 +19,11 @@ public class FearManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Debug.Log("test");
         fear1 = GameObject.FindWithTag("fearlevel1");
         fear2 = GameObject.FindWithTag("fearlevel2");
         fear3 = GameObject.FindWithTag("fearlevel3");
-        fearDistance = GameObject.FindWithTag("fearDistance");
+        //fearDistance = GameObject.FindWithTag("fearDistance");
 
     }
 
@@ -60,28 +62,64 @@ public class FearManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "fearlevel1") {
+        Debug.Log("trigger enter");
+
+        if (other.CompareTag("fearlevel1")) {
             setSubjectiveFear(1);
-            Debug.Log("fearlevel set to 1");
+            Debug.Log("trigger fearlevel set to 1");
         }
-        else if (other.gameObject.tag == "fearlevel2") {
+        else if (other.CompareTag("fearlevel2")) {
             setSubjectiveFear(2);
-            Debug.Log("fearlevel set to 2");
+            Debug.Log(" trigger fearlevel set to 2");
         }
-        else if (other.gameObject.tag == "fearlevel3")
+        else if (other.CompareTag("fearlevel3"))
         {
             setSubjectiveFear(3);
-            Debug.Log("fearlevel set to 3");
+            Debug.Log(" trigger fearlevel set to 3");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-       if(other.gameObject.tag == "fearlevel1"|| other.gameObject.tag == "fearlevel2" || other.gameObject.tag == "fearlevel3")
+       if(other.CompareTag("fearlevel1")|| other.CompareTag("fearlevel2") || other.CompareTag("fearlevel3"))
         {
-            Debug.Log("gate passed: " + getSubjectiveFear());
+            Debug.Log("trigger gate passed: " + getSubjectiveFear());
         }
-        Debug.Log("");
+        Destroy(gameObjectHandler.subjectiveFear);
+        Debug.Log("trigger exit");
 
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("Collision enter");
+
+        if (other.gameObject.tag == "fearlevel1")
+        {
+            setSubjectiveFear(1);
+            Debug.Log(" Collision fearlevel set to 1");
+        }
+        else if (other.gameObject.tag == "fearlevel2")
+        {
+            setSubjectiveFear(2);
+            Debug.Log(" Collision fearlevel set to 2");
+        }
+        else if (other.gameObject.tag == "fearlevel3")
+        {
+            setSubjectiveFear(3);
+            Debug.Log("Collision fearlevel set to 3");
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "fearlevel1" || other.gameObject.tag == "fearlevel2" || other.gameObject.tag == "fearlevel3")
+        {
+            Debug.Log("collision gate passed: " + getSubjectiveFear());
+        }
+        Debug.Log("Collision exit");
+        Destroy(gameObjectHandler.subjectiveFear);
+
+    }
+
 }
