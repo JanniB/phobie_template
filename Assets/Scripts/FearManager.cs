@@ -77,7 +77,10 @@ public class FearManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-       
+       if(other.gameObject.tag == "fearlevel1"|| other.gameObject.tag == "fearlevel2" || other.gameObject.tag == "fearlevel3")
+        {
+            Debug.Log("gate passed: " + getSubjectiveFear());
+        }
         Debug.Log("");
 
     }
