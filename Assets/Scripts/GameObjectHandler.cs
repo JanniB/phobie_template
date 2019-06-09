@@ -11,13 +11,17 @@ public class GameObjectHandler: MonoBehaviour
     public GameObject startPositionZone;
     public GameObject terrarium;
     public GameObject tutorialZone;
- 
+    public GameObject subjectiveFear;
+    public GameObject objectiveFear;
+
 
     public List<GameObject> fearObjectList = new List<GameObject>();
+    public List<GameObject> objectiveFearList = new List<GameObject>();
+
     public GameObject[] fearObjects;
+    public GameObject[] objectiveFearObjects;
     public int currentFearObject = 0;
 
-    public GameObject subjectiveFear;
 
 
     // Use this for initialization
@@ -29,12 +33,20 @@ public class GameObjectHandler: MonoBehaviour
         //terrarium = GameObject.FindWithTag("terrarium");
         //tutorialZone = GameObject.FindWithTag("tutorialzone");
         fearObjects = GameObject.FindGameObjectsWithTag("fearobject");
+        objectiveFearObjects = GameObject.FindGameObjectsWithTag("fearDistance");
         //subjectiveFear = GameObject.FindGameObjectWithTag("fearGates");
+        //objectiveFear = GameObject.FindGameObjectWithTag("fearDistance");
+
 
         foreach (GameObject g in fearObjects)
         {
             fearObjectList.Add(g);
-            Debug.Log("Anzahl Angstobjekte: " + fearObjectList.Count);
+            g.SetActive(false);
+        }
+        foreach (GameObject g in objectiveFearObjects)
+        {
+            objectiveFearList.Add(g);
+         
             g.SetActive(false);
         }
     }
@@ -84,6 +96,23 @@ public class GameObjectHandler: MonoBehaviour
         this.subjectiveFear.SetActive(true);
     }
 
+    public void displayObjectiveFear()
+    {
+        foreach (GameObject g in objectiveFearList)
+        {
+            g.SetActive(true);
+        }
+    }
+
+    public void hideObjectiveFear()
+    {
+        foreach (GameObject g in objectiveFearList)
+        {
+            g.SetActive(false);
+        }
+        
+        Debug.Log("hide objective fear");
+    }
 
     /*
      * FearObjects

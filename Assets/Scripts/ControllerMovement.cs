@@ -10,7 +10,7 @@ public class ControllerMovement : MonoBehaviour
     Vector3 startPositionL;
     Vector3 startPositionR;
     //Vector3 endPositionL;
-    Vector3 endPositionR;
+    float endPositionR;
     float distanceToPlayer;
 
     SteamVR_TrackedObject trackedObject;
@@ -24,14 +24,26 @@ public class ControllerMovement : MonoBehaviour
     void Update() {
        //endPositionL = new Vector3(InputTracking.GetLocalPosition(XRNode.LeftHand).x, 0, 0);
       
-        endPositionR = new Vector3(InputTracking.GetLocalPosition(XRNode.RightHand).x, 0, 0);
+        endPositionR = InputTracking.GetLocalPosition(XRNode.RightHand).x;
         CalculateDistance(endPositionR);
     }
    
 
-    void CalculateDistance(Vector3 endPos)
+    void CalculateDistance(float endPos)
     {
         float hmdPosition = InputTracking.GetLocalPosition(XRNode.Head).x;
-
+        setFearDistance(endPos - hmdPosition);
+        //Debug.Log("distance" + distanceToPlayer);
     }
+
+    public float getFearDistance()
+    {
+        return distanceToPlayer;
+    }
+
+    public void setFearDistance(float distance)
+    {
+        distanceToPlayer = distance;
+    }
+
 }

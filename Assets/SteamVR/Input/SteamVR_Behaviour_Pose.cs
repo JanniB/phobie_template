@@ -14,6 +14,8 @@ namespace Valve.VR
     /// </summary>
     public class SteamVR_Behaviour_Pose : MonoBehaviour
     {
+        public float speed = 30.0f;
+
         public SteamVR_Action_Pose poseAction = SteamVR_Input.GetAction<SteamVR_Action_Pose>("Pose");
 
         [Tooltip("The device this action should apply to. Any if the action is not device specific.")]
@@ -126,12 +128,12 @@ namespace Valve.VR
 
             if (origin != null)
             {
-                transform.position = origin.transform.TransformPoint(poseAction[inputSource].localPosition.x, 0,0);
+                transform.position = origin.transform.TransformPoint((poseAction[inputSource].localPosition.x)* speed, 0,0);
                // transform.rotation = origin.rotation * poseAction[inputSource].localRotation;
             }
             else
             {
-                transform.localPosition = new Vector3(poseAction[inputSource].localPosition.x, 0,0);
+                transform.localPosition = new Vector3((poseAction[inputSource].localPosition.x) * speed, 0,0);
                // transform.localRotation = poseAction[inputSource].localRotation;
             }
         }

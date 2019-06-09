@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Valve.VR;
+using UnityEngine.XR;
 
 public class FearManager : MonoBehaviour
 {
 
     //public LevelManager levelManager;
-    GameObjectHandler gameObjectHandler;
+    public GameObjectHandler gameObjectHandler;
     GameObject fear1;
     GameObject fear2;
     GameObject fear3;
@@ -16,6 +18,15 @@ public class FearManager : MonoBehaviour
     int objectiveFear = 0;
     int fearRes;
 
+    Vector3 startPositionL;
+    Vector3 startPositionR;
+    //Vector3 endPositionL;
+    float endPositionR;
+    float distanceToPlayer;
+
+    SteamVR_TrackedObject trackedObject;
+    //Quaternion newRotation = Quaternion.identity;
+
     // Use this for initialization
     void Start()
     {
@@ -23,14 +34,17 @@ public class FearManager : MonoBehaviour
         fear1 = GameObject.FindWithTag("fearlevel1");
         fear2 = GameObject.FindWithTag("fearlevel2");
         fear3 = GameObject.FindWithTag("fearlevel3");
-        //fearDistance = GameObject.FindWithTag("fearDistance");
-
-    }
+        fearDistance = GameObject.FindWithTag("fearDistance");
+        startPositionL = InputTracking.GetLocalPosition(XRNode.LeftHand);
+        startPositionR = InputTracking.GetLocalPosition(XRNode.RightHand);
+        trackedObject = GetComponent<SteamVR_TrackedObject>();
+}
 
     // Update is called once per frame
     void Update()
     {
-
+        endPositionR = InputTracking.GetLocalPosition(XRNode.RightHand).x;
+        CalculateDistance();
     }
 
     public int getSubjectiveFear()
@@ -90,36 +104,21 @@ public class FearManager : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision other)
+    public void CalculateDistance()
     {
-        Debug.Log("Collision enter");
-
-        if (other.gameObject.tag == "fearlevel1")
-        {
-            setSubjectiveFear(1);
-            Debug.Log(" Collision fearlevel set to 1");
-        }
-        else if (other.gameObject.tag == "fearlevel2")
-        {
-            setSubjectiveFear(2);
-            Debug.Log(" Collision fearlevel set to 2");
-        }
-        else if (other.gameObject.tag == "fearlevel3")
-        {
-            setSubjectiveFear(3);
-            Debug.Log("Collision fearlevel set to 3");
-        }
+        float hmdPosition = InputTracking.GetLocalPosition(XRNode.Head).x;
+        setFearDistance(endPositionR - hmdPosition);
+        //Debug.Log("distance" + distanceToPlayer);
     }
 
-    private void OnCollisionExit(Collision other)
+    public float getFearDistance()
     {
-        if (other.gameObject.tag == "fearlevel1" || other.gameObject.tag == "fearlevel2" || other.gameObject.tag == "fearlevel3")
-        {
-            Debug.Log("collision gate passed: " + getSubjectiveFear());
-        }
-        Debug.Log("Collision exit");
-        Destroy(gameObjectHandler.subjectiveFear);
+        return distanceToPlayer;
+    }
 
+    public void setFearDistance(float distance)
+    {
+        distanceToPlayer = distance;
     }
 
 }

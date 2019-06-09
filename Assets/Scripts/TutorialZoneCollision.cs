@@ -34,7 +34,6 @@ public class TutorialZoneCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Entered Tutorialzone");
-        objectHandler.displayStartPositionZone();
         //objective Fear display
     }
 
