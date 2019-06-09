@@ -27,6 +27,7 @@ public class objectiveFearZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        objectHandler.hideObjectiveFear();
         fearManager.CalculateDistance();
        //allgemeine angstdistanz berechnen
         objectHandler.displayStartPositionZone();
