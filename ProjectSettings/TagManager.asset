@@ -15,6 +15,7 @@ TagManager:
   - nextLevelZone
   - tutorialzone
   - startPositionZone
+  - startTutorialMarker
   layers:
   - Default
   - TransparentFX
