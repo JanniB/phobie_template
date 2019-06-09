@@ -16,6 +16,9 @@ TagManager:
   - tutorialzone
   - startPositionZone
   - startTutorialMarker
+  - fearlevel1
+  - fearlevel2
+  - fearlevel3
   layers:
   - Default
   - TransparentFX
