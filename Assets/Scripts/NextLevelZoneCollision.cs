@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NextLevelZoneCollision : MonoBehaviour
 {
@@ -11,20 +12,37 @@ public class NextLevelZoneCollision : MonoBehaviour
     public GameObjectHandler objectHandler;
     bool isWaiting = false;
 
-    // Start is called before the first frame update
+    public Text countDown;
+    public GameObject countdown;
+    private float time = 6f;
+    private bool entered = false;
+
     void Start()
     {
-
+        countdown.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
-        
+        if (entered)
+        {
+            countdown.SetActive(true);
+            if (time > 1)
+            {
+                time -= Time.deltaTime;
+                countDown.text = time.ToString("0");
+            }
+            else
+            {
+                countdown.SetActive(false);
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        //3s
+        entered = true;
+        //5s
         isWaiting = true;
         StartCoroutine(WaitCallNextLevel());
        //startConfig.configRoom();
@@ -32,6 +50,8 @@ public class NextLevelZoneCollision : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        entered = false;
+        time = 6f;
         isWaiting = false;
         //wird ausgeblendet in startConfigRoom daher nie aufgerufen
         Debug.Log("exit NextLevelZone");

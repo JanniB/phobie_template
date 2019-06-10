@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class StartPositionZoneCollision : MonoBehaviour
 {
@@ -10,19 +12,37 @@ public class StartPositionZoneCollision : MonoBehaviour
     public FearManager fearManager;
     bool isWaiting = false;
 
-    // Start is called before the first frame update
+    public Text countDown;
+    public GameObject countdown;
+    private float time = 6f;
+    private bool entered = false;
+
     void Start()
     {
-
+        countdown.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
-        
+        if (entered)
+        {
+            countdown.SetActive(true);
+            if (time > 1)
+            {
+                time -= Time.deltaTime;
+                countDown.text = time.ToString("0");
+            }
+            else
+            {
+                countdown.SetActive(false);
+            }
+        }
     }
 
-    void OnTriggerEnter(Collider other)
+
+        void OnTriggerEnter(Collider other)
     {
+        entered = true;
         Debug.Log("entered startzone + level: " + levelManager.getLevel());
         //timeout 3s
         isWaiting = true;
@@ -40,6 +60,8 @@ public class StartPositionZoneCollision : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        entered = false;
+        time = 6f;
         isWaiting = false;
         Debug.Log("exit StartPositionZone");
         //wird ausgeblendet in startConfigRoom daher nie aufgerufen
