@@ -1964,7 +1964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496090891}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18824014, y: -0.01053902, z: 15.310003}
+  m_LocalPosition: {x: -0.2203598, y: 0.0070000216, z: 15.310002}
   m_LocalScale: {x: 0.10255476, y: 0.97427005, z: 0.97427016}
   m_Children: []
   m_Father: {fileID: 1621285302}
@@ -2603,7 +2603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626867394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.08, y: -0.331, z: 0.79}
+  m_LocalPosition: {x: -3.08, y: -0.356, z: 0.79}
   m_LocalScale: {x: 2.15954, y: 0.9, z: 0.1}
   m_Children:
   - {fileID: 1621285302}
@@ -2694,6 +2694,7 @@ MonoBehaviour:
   tutorialZone: {fileID: 1298607574}
   subjectiveFear: {fileID: 2010810074}
   objectiveFear: {fileID: 0}
+  therapyZone: {fileID: 943475067}
   fearObjectList: []
   objectiveFearList: []
   fearObjects: []
@@ -2753,6 +2754,7 @@ MonoBehaviour:
   tutorialZone: {fileID: 1298607574}
   subjectiveFear: {fileID: 0}
   objectiveFear: {fileID: 0}
+  therapyZone: {fileID: 0}
   fearObjectList: []
   objectiveFearList: []
   fearObjects: []
@@ -5598,7 +5600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305112423}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.057896063, y: -0.01053902, z: 15.309999}
+  m_LocalPosition: {x: 0.025776409, y: 0.0070000216, z: 15.3099985}
   m_LocalScale: {x: 0.10255476, y: 0.97427005, z: 0.97427016}
   m_Children: []
   m_Father: {fileID: 1621285302}
@@ -7251,7 +7253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656849427}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.45488033, y: -0.01053902, z: 15.310001}
+  m_LocalPosition: {x: -0.487, y: 0.007, z: 15.31}
   m_LocalScale: {x: 0.20510952, y: 0.97427005, z: 0.97427016}
   m_Children: []
   m_Father: {fileID: 1621285302}
@@ -8065,7 +8067,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754242769}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.37068984, y: -0.01053902, z: 15.309999}
+  m_LocalPosition: {x: 0.336, y: 0.0070000216, z: 15.31}
   m_LocalScale: {x: 0.20510952, y: 0.97427005, z: 0.97427016}
   m_Children: []
   m_Father: {fileID: 1621285302}

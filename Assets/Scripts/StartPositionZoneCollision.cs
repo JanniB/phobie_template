@@ -26,7 +26,11 @@ public class StartPositionZoneCollision : MonoBehaviour
         Debug.Log("entered startzone + level: " + levelManager.getLevel());
         //timeout 3s
         isWaiting = true;
+        objectHandler.therapyZone.SetActive(true);
+        objectHandler.displayCrossMarker();
+        objectHandler.displayTerrarium();
         StartCoroutine(WaitCallNextLevel());
+        
     }
 
     private void OnTriggerExit(Collider other)
@@ -46,10 +50,12 @@ public class StartPositionZoneCollision : MonoBehaviour
             if(levelManager.getLevel() == 0)
             {
                 levelManager.setLevel(fearManager.calculateFearLevel());
+                
             } 
             levelManager.callNextLevel(levelManager.getLevel());
             therapyZoneCol.levelIsRunning = true;
             Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
+            objectHandler.crossMarker.SetActive(false);
         }
     }
 }

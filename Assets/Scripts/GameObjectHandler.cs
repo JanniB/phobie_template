@@ -13,6 +13,7 @@ public class GameObjectHandler: MonoBehaviour
     public GameObject tutorialZone;
     public GameObject subjectiveFear;
     public GameObject objectiveFear;
+    public GameObject therapyZone;
 
 
     public List<GameObject> fearObjectList = new List<GameObject>();
