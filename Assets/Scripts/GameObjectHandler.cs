@@ -24,7 +24,6 @@ public class GameObjectHandler: MonoBehaviour
     public int currentFearObject = 0;
 
 
-
     // Use this for initialization
     void Start()
     {
@@ -114,13 +113,25 @@ public class GameObjectHandler: MonoBehaviour
         return fearObjectList[currentFearObject];
     }
 
+    public int getCurrentFearObjectNr()
+    {
+        return currentFearObject;
+    }
+
     public void setCurrentFearObject(int level)
     {
         currentFearObject = level;
         if (currentFearObject == fearObjectList.Count)
         {
+
             Debug.Log("Congratulations, you finished therapy!");
         }
+       /*else if (currentFearObject == 8)
+        {
+            Debug.Log("two current fear objects in level 8 ");
+            //fearObjects[currentFearObject].SetActive(true);
+            //fearObjects[currentFearObject+1].SetActive(true);
+        }*/
         else
         {
             fearObjects[0].SetActive(true);

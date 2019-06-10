@@ -66,23 +66,33 @@ public class LevelManager : MonoBehaviour
                 level++;
                 break;
             case 5:
+                Debug.Log("Level " + level + "loading");
+                objectHandler.displayNextLevelZone();
+                objectHandler.setCurrentFearObject(level);
                 level++;
-
                 break;
             case 6:
-                //...terrarium.SetActive(false);
+                Debug.Log("Level " + level + "loading");
+                objectHandler.displayNextLevelZone();
+                objectHandler.setCurrentFearObject(level);
                 level++;
-
                 break;
             case 7:
+                Debug.Log("Level " + level + "loading");
+                objectHandler.displayNextLevelZone();
+                objectHandler.terrarium.SetActive(false);
+                //TODO zone auf boden einblenden
+                objectHandler.setCurrentFearObject(level);
                 level++;
-
                 break;
             case 8:
+                Debug.Log("Level " + level + "loading");
+                objectHandler.displayNextLevelZone();
+                objectHandler.terrarium.SetActive(false);
+                //TODO zone auf boden einblenden
+                objectHandler.setCurrentFearObject(level);
                 level++;
-
                 break;
-
                 //TODO weitere steps
         }
     }
