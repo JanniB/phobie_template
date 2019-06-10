@@ -12,18 +12,13 @@ public class objectiveFearZone : MonoBehaviour
     public GameObject prefab;
     public GameObject Controller;
     public Transform spawnPoint;
+    
     // Start is called before the first frame update
     void Start()
     {
-        /*objectiveFearObjects = GameObject.FindGameObjectsWithTag("fearDistance");
-
-        foreach (GameObject g in objectiveFearObjects)
-        {
-            objectiveFearList.Add(g);
-
-            g.SetActive(false);
-        }*/
+       
     }
+    
     // Update is called once per frame
     void Update()
     {
@@ -32,54 +27,26 @@ public class objectiveFearZone : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //var device = SteamVR_Controller.Input((int)Controller.index);
-        var Instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
-        Instance.transform.parent = Controller.transform;
-        //Instance.transform.parent = gameObject.transform;
-        //Instance.tranform = Controller.transform
-        
+        StartCoroutine(WaitObjectiveFear());
         Debug.Log("entered objective fear zone");
-        //timeout 5s
-       
     }
 
     private void OnTriggerExit(Collider other)
     {
-        hideObjectiveFear();
+        var fearDistance = GameObject.FindGameObjectWithTag("fearDistance");
+        fearDistance.SetActive(false);
+        this.gameObject.SetActive(false);
         controller.calculateDistance();
-       //allgemeine angstdistanz berechnen
         objectHandler.displayStartPositionZone();
         Debug.Log("exit objectiveFearZone");
-        //wird ausgeblendet in startConfigRoom daher nie aufgerufen
     }
 
     IEnumerator WaitObjectiveFear()
     {
         yield return new WaitForSeconds(3);
-        displayObjectiveFear();
+        var Instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+        Instance.transform.parent = Controller.transform;
 
     }
-
-    public void hideObjectiveFear()
-    {
-        foreach (GameObject g in objectiveFearList)
-        {
-            g.SetActive(false);
-        }
-
-        Debug.Log("hide objective fear");
-    }
-
-    public void displayObjectiveFear()
-    {
-        foreach (GameObject g in objectiveFearObjects)
-        {
-            
-            StartCoroutine(WaitObjectiveFear());
-            objectiveFearList.Add(g);
-
-            g.SetActive(true);
-        }
-    }
-
+    
 }

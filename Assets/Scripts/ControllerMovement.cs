@@ -39,7 +39,7 @@ public class ControllerMovement : MonoBehaviour
 
     public float getFearDistance()
     {
-        return distanceToPlayer;
+        return distanceToPlayer = 2; //TODO = rausnehmen
     }
 
     public void setFearDistance(float distance)
