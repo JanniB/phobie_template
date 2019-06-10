@@ -91,6 +91,7 @@ public class LevelManager : MonoBehaviour
                 objectHandler.terrarium.SetActive(false);
                 //TODO zone auf boden einblenden
                 objectHandler.setCurrentFearObject(level);
+
                 level++;
                 break;
                 //TODO weitere steps

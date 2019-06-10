@@ -23,7 +23,6 @@ public class SpiderWalk : MonoBehaviour
         //Pos1 = new Vector3(2.197f, 0.004f, 2.618f);
         //Pos2 = new Vector3(2.118f, 0.004f, 2.097f);
         //Pos3 = new Vector3(2.685f, 0.004f, 2.376f);
-        spider = gameObjectHandler.getCurrentFearObject();
         center = spider.transform.position;
         Debug.Log("TESTETSESTSSETSTSETSTSET" + gameObjectHandler.getCurrentFearObjectNr());
 

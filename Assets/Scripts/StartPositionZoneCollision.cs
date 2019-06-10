@@ -12,6 +12,10 @@ public class StartPositionZoneCollision : MonoBehaviour
     public FearManager fearManager;
     bool isWaiting = false;
 
+    public GameObject spiderPrefab;
+    public GameObject Spider8;
+    public Transform spawnPoint;
+
     public Text countDown;
     public GameObject countdown;
     private float time = 6f;
@@ -78,7 +82,13 @@ public class StartPositionZoneCollision : MonoBehaviour
             {
                 levelManager.setLevel(fearManager.calculateFearLevel());
                 
-            } 
+            }
+            else if (levelManager.getLevel() == 8)
+            {
+                Debug.Log("spinnen instanz");
+                var Instance = Instantiate(spiderPrefab, spawnPoint.position, spawnPoint.rotation);
+                Instance.transform.parent = Spider8.transform;
+            }
             levelManager.callNextLevel(levelManager.getLevel());
             therapyZoneCol.levelIsRunning = true;
             Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
