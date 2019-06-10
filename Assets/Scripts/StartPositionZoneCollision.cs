@@ -28,9 +28,14 @@ public class StartPositionZoneCollision : MonoBehaviour
         isWaiting = true;
         objectHandler.therapyZone.SetActive(true);
         objectHandler.displayCrossMarker();
-        objectHandler.displayTerrarium();
         StartCoroutine(WaitCallNextLevel());
-        
+
+        if(levelManager.getLevel() < 7)
+        {
+            Debug.Log("LEvel > 7 display Terrarium");
+            objectHandler.displayTerrarium();
+        }
+
     }
 
     private void OnTriggerExit(Collider other)

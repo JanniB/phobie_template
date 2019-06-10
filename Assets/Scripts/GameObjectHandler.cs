@@ -125,13 +125,13 @@ public class GameObjectHandler: MonoBehaviour
         {
 
             Debug.Log("Congratulations, you finished therapy!");
-        }
-       /*else if (currentFearObject == 8)
+        } 
+        else if (currentFearObject == 8)
         {
             Debug.Log("two current fear objects in level 8 ");
-            //fearObjects[currentFearObject].SetActive(true);
-            //fearObjects[currentFearObject+1].SetActive(true);
-        }*/
+            fearObjects[currentFearObject].SetActive(true);
+            fearObjects[currentFearObject + 1].SetActive(true);
+        }
         else
         {
             fearObjects[0].SetActive(true);
