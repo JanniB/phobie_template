@@ -2,30 +2,21 @@
 using System.Collections;
 using Valve.VR;
 using UnityEngine.XR;
+using System;
 
 public class FearManager : MonoBehaviour
 {
 
     //public LevelManager levelManager;
     public GameObjectHandler gameObjectHandler;
+    public ControllerMovement controller;
     GameObject fear1;
     GameObject fear2;
     GameObject fear3;
-    GameObject fearDistance;
-    int fearDistanceNr;
 
-    int subjectiveFear = 0;
-    int objectiveFear = 0;
-    int fearRes;
-
-    Vector3 startPositionL;
-    Vector3 startPositionR;
-    //Vector3 endPositionL;
-    float endPositionR;
-    float distanceToPlayer;
-
-    SteamVR_TrackedObject trackedObject;
-    //Quaternion newRotation = Quaternion.identity;
+    float subjectiveFear = 1f;
+    float objectiveFear = 0f;
+    float fearRes;
 
     // Use this for initialization
     void Start()
@@ -34,44 +25,41 @@ public class FearManager : MonoBehaviour
         fear1 = GameObject.FindWithTag("fearlevel1");
         fear2 = GameObject.FindWithTag("fearlevel2");
         fear3 = GameObject.FindWithTag("fearlevel3");
-        fearDistance = GameObject.FindWithTag("fearDistance");
-        startPositionL = InputTracking.GetLocalPosition(XRNode.LeftHand);
-        startPositionR = InputTracking.GetLocalPosition(XRNode.RightHand);
-        trackedObject = GetComponent<SteamVR_TrackedObject>();
 }
 
     // Update is called once per frame
     void Update()
     {
-        endPositionR = InputTracking.GetLocalPosition(XRNode.RightHand).x;
-        CalculateDistance();
+        
     }
 
-    public int getSubjectiveFear()
+    public float getSubjectiveFear()
     {
         return subjectiveFear;
     }
 
-    public void setSubjectiveFear(int fear)
+    public void setSubjectiveFear(float fear)
     {
         subjectiveFear = fear;
     }
 
-    public int getObjectiveFear()
+    public float getObjectiveFear()
     {
         return objectiveFear;
     }
 
-    public void setObjectiveFear(int fear)
+    public void setObjectiveFear(float fear)
     {
         objectiveFear = fear;
     }
 
-    public int calculateFearLevel(int subjectiveFear, int objectiveFear)
+    public int calculateFearLevel()
     {
-        //fearRes = subjectiveFear + objectiveFear;
-        fearRes = subjectiveFear; //TODO
-        return fearRes;
+        objectiveFear = controller.getFearDistance() * 100;
+        fearRes = (subjectiveFear + objectiveFear)/2;
+        fearRes = (float) Math.Round(fearRes, 0);
+        Debug.Log("fear calculated in int: " + fearRes);
+        return (int) fearRes;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -80,16 +68,16 @@ public class FearManager : MonoBehaviour
 
         if (other.CompareTag("fearlevel1")) {
             setSubjectiveFear(1);
-            Debug.Log("trigger fearlevel set to 1");
+            Debug.Log("trigger fearlevel set to 1>1");
         }
         else if (other.CompareTag("fearlevel2")) {
-            setSubjectiveFear(2);
-            Debug.Log(" trigger fearlevel set to 2");
+            setSubjectiveFear(3);
+            Debug.Log(" trigger fearlevel set to 2>3");
         }
         else if (other.CompareTag("fearlevel3"))
         {
-            setSubjectiveFear(3);
-            Debug.Log(" trigger fearlevel set to 3");
+            setSubjectiveFear(5);
+            Debug.Log(" trigger fearlevel set to 3>5");
         }
     }
 
@@ -103,22 +91,4 @@ public class FearManager : MonoBehaviour
         Debug.Log("trigger exit");
 
     }
-
-    public void CalculateDistance()
-    {
-        float hmdPosition = InputTracking.GetLocalPosition(XRNode.Head).x;
-        setFearDistance(endPositionR - hmdPosition);
-        //Debug.Log("distance" + distanceToPlayer);
-    }
-
-    public float getFearDistance()
-    {
-        return distanceToPlayer;
-    }
-
-    public void setFearDistance(float distance)
-    {
-        distanceToPlayer = distance;
-    }
-
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using Valve.VR;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
+using System;
 
 public class ControllerMovement : MonoBehaviour
 {
@@ -18,22 +19,22 @@ public class ControllerMovement : MonoBehaviour
     void Start() {
         startPositionL = InputTracking.GetLocalPosition(XRNode.LeftHand);
         startPositionR = InputTracking.GetLocalPosition(XRNode.RightHand);
-        trackedObject = GetComponent<SteamVR_TrackedObject>();
+        Debug.Log("controller start: " + startPositionR);
     }
 
-    void Update() {
-       //endPositionL = new Vector3(InputTracking.GetLocalPosition(XRNode.LeftHand).x, 0, 0);
-      
-        endPositionR = InputTracking.GetLocalPosition(XRNode.RightHand).x;
-        CalculateDistance(endPositionR);
+    void Update()
+    {
+
     }
    
 
-    void CalculateDistance(float endPos)
+    public void calculateDistance()
     {
-        float hmdPosition = InputTracking.GetLocalPosition(XRNode.Head).x;
-        setFearDistance(endPos - hmdPosition);
-        //Debug.Log("distance" + distanceToPlayer);
+        distanceToPlayer = Math.Abs(InputTracking.GetLocalPosition(XRNode.RightHand).x - InputTracking.GetLocalPosition(XRNode.Head).x);
+        Debug.Log("controller ende: " + (InputTracking.GetLocalPosition(XRNode.RightHand).x));
+        Debug.Log("person ende: " + (InputTracking.GetLocalPosition(XRNode.Head).x));
+        setFearDistance(distanceToPlayer);
+        Debug.Log("distance" + distanceToPlayer);
     }
 
     public float getFearDistance()

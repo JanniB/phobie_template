@@ -7,6 +7,7 @@ public class StartPositionZoneCollision : MonoBehaviour
     public LevelManager levelManager;
     public TherapyZoneCollision therapyZoneCol;
     public GameObjectHandler objectHandler;
+    public FearManager fearManager;
     bool isWaiting = false;
 
     // Start is called before the first frame update
@@ -42,6 +43,10 @@ public class StartPositionZoneCollision : MonoBehaviour
         Debug.Log("5 seconds passed");
         if (isWaiting)
         {
+            if(levelManager.getLevel() == 0)
+            {
+                levelManager.setLevel(fearManager.calculateFearLevel());
+            } 
             levelManager.callNextLevel(levelManager.getLevel());
             therapyZoneCol.levelIsRunning = true;
             Debug.Log("level is running" + therapyZoneCol.levelIsRunning);

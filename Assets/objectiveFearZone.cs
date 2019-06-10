@@ -5,7 +5,7 @@ using UnityEngine;
 public class objectiveFearZone : MonoBehaviour
 {
     public GameObjectHandler objectHandler;
-    FearManager fearManager;
+    public ControllerMovement controller;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class objectiveFearZone : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         objectHandler.hideObjectiveFear();
-        fearManager.CalculateDistance();
+        controller.calculateDistance();
        //allgemeine angstdistanz berechnen
         objectHandler.displayStartPositionZone();
         Debug.Log("exit objectiveFearZone");
