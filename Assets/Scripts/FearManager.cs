@@ -55,6 +55,7 @@ public class FearManager : MonoBehaviour
 
     public int calculateFearLevel()
     {
+        Debug.Log("test calclevel");
         objectiveFear = controller.getFearDistance() * 100;
         fearRes = (subjectiveFear + objectiveFear)/2;
         fearRes = (float) Math.Round(fearRes, 0);

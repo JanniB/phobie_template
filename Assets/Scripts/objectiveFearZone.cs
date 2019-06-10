@@ -6,11 +6,19 @@ public class objectiveFearZone : MonoBehaviour
 {
     public GameObjectHandler objectHandler;
     public ControllerMovement controller;
-
+    public List<GameObject> objectiveFearList = new List<GameObject>();
+    public GameObject[] objectiveFearObjects;
     // Start is called before the first frame update
     void Start()
     {
+        objectiveFearObjects = GameObject.FindGameObjectsWithTag("fearDistance");
 
+        foreach (GameObject g in objectiveFearObjects)
+        {
+            objectiveFearList.Add(g);
+
+            g.SetActive(false);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -27,7 +35,7 @@ public class objectiveFearZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        objectHandler.hideObjectiveFear();
+        hideObjectiveFear();
         controller.calculateDistance();
        //allgemeine angstdistanz berechnen
         objectHandler.displayStartPositionZone();
@@ -38,8 +46,28 @@ public class objectiveFearZone : MonoBehaviour
     IEnumerator WaitObjectiveFear()
     {
         yield return new WaitForSeconds(3);
-        objectHandler.displayObjectiveFear();
+        displayObjectiveFear();
 
+    }
+
+    public void hideObjectiveFear()
+    {
+        foreach (GameObject g in objectiveFearList)
+        {
+            g.SetActive(false);
+        }
+
+        Debug.Log("hide objective fear");
+    }
+
+    public void displayObjectiveFear()
+    {
+        foreach (GameObject g in objectiveFearObjects)
+        {
+            objectiveFearList.Add(g);
+
+            g.SetActive(true);
+        }
     }
 
 }

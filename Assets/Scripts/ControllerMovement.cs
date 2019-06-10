@@ -31,8 +31,8 @@ public class ControllerMovement : MonoBehaviour
     public void calculateDistance()
     {
         distanceToPlayer = Math.Abs(InputTracking.GetLocalPosition(XRNode.RightHand).x - InputTracking.GetLocalPosition(XRNode.Head).x);
-        Debug.Log("controller ende: " + (InputTracking.GetLocalPosition(XRNode.RightHand).x));
-        Debug.Log("person ende: " + (InputTracking.GetLocalPosition(XRNode.Head).x));
+        Debug.Log("controller ende: " + (InputTracking.GetLocalPosition(XRNode.RightHand).x));//1.298956
+        Debug.Log("person ende: " + (InputTracking.GetLocalPosition(XRNode.Head).x));//0.4703444
         setFearDistance(distanceToPlayer);
         Debug.Log("distance" + distanceToPlayer);
     }

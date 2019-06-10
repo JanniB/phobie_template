@@ -33,7 +33,6 @@ public class GameObjectHandler: MonoBehaviour
         //terrarium = GameObject.FindWithTag("terrarium");
         //tutorialZone = GameObject.FindWithTag("tutorialzone");
         fearObjects = GameObject.FindGameObjectsWithTag("fearobject");
-        objectiveFearObjects = GameObject.FindGameObjectsWithTag("fearDistance");
         //subjectiveFear = GameObject.FindGameObjectWithTag("fearGates");
         //objectiveFear = GameObject.FindGameObjectWithTag("fearDistance");
 
@@ -43,12 +42,7 @@ public class GameObjectHandler: MonoBehaviour
             fearObjectList.Add(g);
             g.SetActive(false);
         }
-        foreach (GameObject g in objectiveFearObjects)
-        {
-            objectiveFearList.Add(g);
-         
-            g.SetActive(false);
-        }
+        
     }
 
     // Update is called once per frame
@@ -96,23 +90,7 @@ public class GameObjectHandler: MonoBehaviour
         this.subjectiveFear.SetActive(true);
     }
 
-    public void displayObjectiveFear()
-    {
-        foreach (GameObject g in objectiveFearList)
-        {
-            g.SetActive(true);
-        }
-    }
 
-    public void hideObjectiveFear()
-    {
-        foreach (GameObject g in objectiveFearList)
-        {
-            g.SetActive(false);
-        }
-        
-        Debug.Log("hide objective fear");
-    }
 
     /*
      * FearObjects
