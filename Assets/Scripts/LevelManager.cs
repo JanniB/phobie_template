@@ -43,6 +43,7 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("Level " + level + l + "loading");
                 objectHandler.setCurrentFearObject(level);
                 objectHandler.displayNextLevelZone();
+                objectHandler.displayTerrarium();
                 level++;
                 Debug.Log("set next level to " + level);
                 break;
@@ -51,36 +52,42 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("Level " + level + l + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
+                objectHandler.displayTerrarium();
                 level++;
                 break;
             case 3:
                 Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
+                objectHandler.displayTerrarium();
                 level++;
                 break;
             case 4:
                 Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
+                objectHandler.displayTerrarium();
                 level++;
                 break;
             case 5:
                 Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
+                objectHandler.displayTerrarium();
                 level++;
                 break;
             case 6:
                 Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
+                objectHandler.displayTerrarium();
                 level++;
                 break;
             case 7:
                 Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.terrarium.SetActive(false);
+                objectHandler.fearobjectZone.SetActive(true);
                 //TODO zone auf boden einblenden
                 objectHandler.setCurrentFearObject(level);
                 level++;
@@ -89,6 +96,7 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.terrarium.SetActive(false);
+                objectHandler.fearobjectZone.SetActive(true);
                 //TODO zone auf boden einblenden
                 objectHandler.setCurrentFearObject(level);
 

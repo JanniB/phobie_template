@@ -14,7 +14,7 @@ public class GameObjectHandler: MonoBehaviour
     public GameObject subjectiveFear;
     public GameObject objectiveFear;
     public GameObject therapyZone;
-
+    public GameObject fearobjectZone;
 
     public List<GameObject> fearObjectList = new List<GameObject>();
     public List<GameObject> objectiveFearList = new List<GameObject>();
@@ -57,6 +57,7 @@ public class GameObjectHandler: MonoBehaviour
         this.crossMarker.SetActive(false);
         this.nextLevelZone.SetActive(false);
         this.terrarium.SetActive(false);
+        this.fearobjectZone.SetActive(false);
         hideAllFearObjects();
     }
 
@@ -88,6 +89,9 @@ public class GameObjectHandler: MonoBehaviour
     public void displaySubjectiveFear()
     {
         this.subjectiveFear.SetActive(true);
+    }
+    public void displayFearobjectZone(){
+        this.fearobjectZone.SetActive(true);
     }
 
 

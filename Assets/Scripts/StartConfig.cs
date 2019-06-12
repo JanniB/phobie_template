@@ -25,6 +25,7 @@ public class StartConfig : MonoBehaviour
         objectHandler.startPositionZone.SetActive(false);
         objectHandler.displaySubjectiveFear();
         objectHandler.therapyZone.SetActive(false);
+        objectHandler.fearobjectZone.SetActive(false);
     }
 
     public void configRoom()

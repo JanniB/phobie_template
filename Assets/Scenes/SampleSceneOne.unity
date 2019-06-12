@@ -2933,6 +2933,7 @@ MonoBehaviour:
   subjectiveFear: {fileID: 2010810074}
   objectiveFear: {fileID: 0}
   therapyZone: {fileID: 943475067}
+  fearobjectZone: {fileID: 1684347550}
   fearObjectList: []
   objectiveFearList: []
   fearObjects: []
@@ -2997,6 +2998,7 @@ MonoBehaviour:
   subjectiveFear: {fileID: 0}
   objectiveFear: {fileID: 0}
   therapyZone: {fileID: 1007683431}
+  fearobjectZone: {fileID: 0}
   fearObjectList: []
   objectiveFearList: []
   fearObjects: []
