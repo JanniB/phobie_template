@@ -19,18 +19,14 @@ public class SpiderWalk : MonoBehaviour
     void Start()
     {
         Debug.Log("enter start walk");
-
-        //Pos1 = new Vector3(2.197f, 0.004f, 2.618f);
-        //Pos2 = new Vector3(2.118f, 0.004f, 2.097f);
-        //Pos3 = new Vector3(2.685f, 0.004f, 2.376f);
         center = spider.transform.position;
         Debug.Log("TESTETSESTSSETSTSETSTSET" + gameObjectHandler.getCurrentFearObjectNr());
 
         if (gameObjectHandler.getCurrentFearObjectNr() > 6)
         {
-            Debug.Log("TESTETSESTSSETSTSETSTSET" + gameObjectHandler.getCurrentFearObjectNr());
+           //Debug.Log("TESTETSESTSSETSTSETSTSET" + gameObjectHandler.getCurrentFearObjectNr());
             radius = 0.9f;
-            rotateSpeed = 4f;
+            rotateSpeed = 3.7f;
 }
     }
 

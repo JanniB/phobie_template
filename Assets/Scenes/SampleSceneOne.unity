@@ -4713,6 +4713,7 @@ MonoBehaviour:
   Controller: {fileID: 1697286767}
   spawnPoint: {fileID: 902664390}
   startConfig: {fileID: 629396808}
+  fearDistancePos: 0
   countDown: {fileID: 1251714080}
   countdown: {fileID: 1251714078}
 --- !u!1 &782458265
@@ -9097,6 +9098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b9b12c5b08a754bb51016ad356ea90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveFearZone: {fileID: 0}
 --- !u!1 &1543862446
 GameObject:
   m_ObjectHideFlags: 0
@@ -10289,6 +10291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b9b12c5b08a754bb51016ad356ea90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveFearZone: {fileID: 779210274}
 --- !u!114 &1697286771
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class LevelManager : MonoBehaviour
                 level++;
                 break;
             case 3:
-                //Debug.Log("Level " + level + "loading");
+                Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
                 objectHandler.displayTerrarium();

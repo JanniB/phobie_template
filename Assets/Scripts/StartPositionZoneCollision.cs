@@ -101,15 +101,21 @@ public class StartPositionZoneCollision : MonoBehaviour
             if(levelManager.getLevel() == 0)
             {
                 levelManager.setLevel(fearManager.calculateFearLevel());
+                levelManager.callNextLevel(fearManager.calculateFearLevel());
+                Debug.Log("TEEESCHDJ: " + levelManager.getLevel());
+                objectHandler.setCurrentFearObject(levelManager.getLevel());
             }
             else if (levelManager.getLevel() == 8)
             {
                 //Debug.Log("spinnen instanz");
                 var Instance = Instantiate(spiderPrefab, spawnPoint.position, spawnPoint.rotation);
                 Instance.transform.parent = Spider8.transform;
-                Instance.tag = "test";
+                levelManager.callNextLevel(levelManager.getLevel());
             }
-            levelManager.callNextLevel(levelManager.getLevel());
+            else{
+                levelManager.callNextLevel(levelManager.getLevel()); //WURDE GEÄNDERT SPNST HIER RÜCKGÄNGG RAUS AUS ELSE
+            }
+            Debug.Log("lashdfl: " + levelManager.getLevel());
             therapyZoneCol.levelIsRunning = true;
             //Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
             objectHandler.crossMarker.SetActive(false);

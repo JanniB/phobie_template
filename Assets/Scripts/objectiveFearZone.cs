@@ -14,7 +14,7 @@ public class objectiveFearZone : MonoBehaviour
     public GameObject Controller;
     public Transform spawnPoint;
     public StartConfig startConfig;
-
+    public float fearDistancePos;
     public Text countDown;
     public GameObject countdown;
     private float time = 5f;
@@ -55,6 +55,8 @@ public class objectiveFearZone : MonoBehaviour
         countdown.SetActive(false);
         time = 5f;
         var fearDistance = GameObject.FindGameObjectWithTag("fearDistance");
+        fearDistancePos = Mathf.Abs(fearDistance.transform.position.x);
+        setFearDistancePos(fearDistancePos);
         fearDistance.SetActive(false);
         this.gameObject.SetActive(false);
         controller.calculateDistance();
@@ -78,8 +80,13 @@ public class objectiveFearZone : MonoBehaviour
             var Instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
             Instance.transform.parent = Controller.transform;
         }
+    }
 
-
+    public float getFearDistancePos (){
+        return fearDistancePos;
+    }
+    public void setFearDistancePos(float position){
+        fearDistancePos = position;
     }
     
 }
