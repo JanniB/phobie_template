@@ -44,9 +44,6 @@ public class objectiveFearZone : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         StartCoroutine(Delay());
-        //entered = true;
-        //StartCoroutine(WaitObjectiveFear());
-        //Debug.Log("entered objective fear zone");
     }
 
     private void OnTriggerExit(Collider other)
@@ -63,14 +60,12 @@ public class objectiveFearZone : MonoBehaviour
         objectHandler.showCurvedArrow();
         objectHandler.displayStartPositionZone();
         startConfig.configRoom();
-        //Debug.Log("exit objectiveFearZone");
     }
 
     IEnumerator Delay(){
         yield return new WaitForSeconds(3);
         entered = true;
         StartCoroutine(WaitObjectiveFear());
-
     }
 
     IEnumerator WaitObjectiveFear()
@@ -85,8 +80,8 @@ public class objectiveFearZone : MonoBehaviour
     public float getFearDistancePos (){
         return fearDistancePos;
     }
+
     public void setFearDistancePos(float position){
         fearDistancePos = position;
     }
-    
 }

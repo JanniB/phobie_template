@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class GameObjectHandler: MonoBehaviour
 {
-
-    //Level Objects
     public GameObject nextLevelZone;
     public GameObject crossMarker;
     public GameObject startPositionZone;
@@ -19,8 +17,6 @@ public class GameObjectHandler: MonoBehaviour
     public GameObject curvedArrowNextLevel;
     public GameObject uturnArrow;
 
-
-
     public List<GameObject> fearObjectList = new List<GameObject>();
     public List<GameObject> objectiveFearList = new List<GameObject>();
 
@@ -32,30 +28,18 @@ public class GameObjectHandler: MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //crossMarker = GameObject.FindWithTag("cross");
-        //nextLevelZone = GameObject.FindWithTag("nextLevelZone");
-        //startPositionZone = GameObject.FindWithTag("startPositionZone");
-        //terrarium = GameObject.FindWithTag("terrarium");
-        //tutorialZone = GameObject.FindWithTag("tutorialzone");
         fearObjects = GameObject.FindGameObjectsWithTag("fearobject");
-        //subjectiveFear = GameObject.FindGameObjectWithTag("fearGates");
-        //objectiveFear = GameObject.FindGameObjectWithTag("fearDistance");
-
-
         foreach (GameObject g in fearObjects)
         {
             fearObjectList.Add(g);
             g.SetActive(false);
         }
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("current fear obejct: " + currentFearObject);
     }
-
 
     public void resetRoom()
     {
@@ -114,11 +98,6 @@ public class GameObjectHandler: MonoBehaviour
         this.curvedArrowNextLevel.SetActive(true);
     }
 
-
-
-    /*
-     * FearObjects
-    */
     public void hideAllFearObjects()
     {
         foreach (GameObject g in fearObjectList)
@@ -147,18 +126,14 @@ public class GameObjectHandler: MonoBehaviour
         currentFearObject = level;
         if (currentFearObject == fearObjectList.Count)
         {
-
-            //Debug.Log("Congratulations, you finished therapy!");
             //therapie beendet
         } 
             fearObjects[0].SetActive(true);
             fearObjects[currentFearObject].SetActive(true);
-            //Debug.Log("current fear Object set to: " + currentFearObject);
     }
 
     public int getFearObjectCount()
     {
         return fearObjectList.Count;
     }
-
 }
