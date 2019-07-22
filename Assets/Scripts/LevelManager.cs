@@ -9,13 +9,10 @@ public class LevelManager : MonoBehaviour
     public StartConfig startConfig;
     public FearManager fearManager;
 
-    // Use this for initialization
     void Start()
     {
-        Debug.Log("Aktuelles Level in LM: " + level);
     }
 
-    // Update is called once per frame
     void Update()
     {
     }
@@ -29,7 +26,6 @@ public class LevelManager : MonoBehaviour
     {
         return level;
     }
-
    
     public void callNextLevel(int l) {
         level = l;

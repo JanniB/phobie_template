@@ -6,23 +6,18 @@ using System;
 
 public class FearManager : MonoBehaviour
 {
-
-    //public LevelManager levelManager;
     public GameObjectHandler gameObjectHandler;
     public ControllerMovement controller;
     int startLevel;
     float subjectiveFear = 1f;
     float fearRes;
 
-    // Use this for initialization
     void Start()
     {
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
 
     public float getSubjectiveFear()
@@ -38,7 +33,6 @@ public class FearManager : MonoBehaviour
     public int calculateFearLevel()
     {
         fearRes = (controller.getFearDistance() + getSubjectiveFear()) / 2;
-        Debug.Log("FEARLEVEL: " + fearRes);
         if (fearRes < 2.3)
         {
             startLevel = 1;
@@ -51,7 +45,6 @@ public class FearManager : MonoBehaviour
         {
             startLevel = 5;
         }
-        Debug.Log("startlevel: " + startLevel);
         return startLevel;
     }
 

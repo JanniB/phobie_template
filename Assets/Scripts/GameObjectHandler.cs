@@ -24,8 +24,6 @@ public class GameObjectHandler: MonoBehaviour
     public GameObject[] objectiveFearObjects;
     public int currentFearObject = 0;
 
-
-    // Use this for initialization
     void Start()
     {
         fearObjects = GameObject.FindGameObjectsWithTag("fearobject");
@@ -36,7 +34,6 @@ public class GameObjectHandler: MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
     }

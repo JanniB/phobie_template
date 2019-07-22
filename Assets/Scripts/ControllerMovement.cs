@@ -1,29 +1,18 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
-using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using System;
 
 public class ControllerMovement : MonoBehaviour
 {
-    Vector3 startPositionL;
-    Vector3 startPositionR;
-    //Vector3 endPositionL;
-    float endPositionR;
     float distanceToPlayer;
     float playerPosition;
     float fearObjectPosition;
     GameObject startTutorial;
     public objectiveFearZone objectiveFearZone;
-    SteamVR_TrackedObject trackedObject;
 
-    //Quaternion newRotation = Quaternion.identity;
     void Start() {
-        startPositionL = InputTracking.GetLocalPosition(XRNode.LeftHand);
-        startPositionR = InputTracking.GetLocalPosition(XRNode.RightHand);
-        Debug.Log("controller start: " + startPositionR);
         startTutorial = GameObject.FindWithTag("startTutorialMarker");
     }
 
@@ -32,27 +21,21 @@ public class ControllerMovement : MonoBehaviour
 
     }
 
-
     public void calculateDistance()
     {
-        //distanceToPlayer = Math.Abs(InputTracking.GetLocalPosition(XRNode.RightHand).x - InputTracking.GetLocalPosition(XRNode.Head).x);
-        //Debug.Log("controller ende: " + (InputTracking.GetLocalPosition(XRNode.RightHand).x));//1.298956
-        //Debug.Log("person ende: " + (InputTracking.GetLocalPosition(XRNode.Head).x));//0.4703444
         fearObjectPosition = objectiveFearZone.getFearDistancePos();
         playerPosition = Mathf.Abs(startTutorial.transform.position.x);
         distanceToPlayer = fearObjectPosition - playerPosition;
         setFearDistance(distanceToPlayer);
-        Debug.Log("Distance to Player: " + distanceToPlayer);
     }
 
     public float getFearDistance()
     {
-        return distanceToPlayer;// = 11; //TODO = rausnehmen
+        return distanceToPlayer;
     }
 
     public void setFearDistance(float distance)
     {
         distanceToPlayer = distance;
     }
-
 }

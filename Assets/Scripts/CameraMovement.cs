@@ -5,26 +5,14 @@
 public class CameraMovement : MonoBehaviour
     {
         Vector3 lastPos = Vector3.zero;
-    public float speed = 1.4f;
+        public float speed = 1.4f;
 
-        // Start is called before the first frame update
         void Start()
         {
-
         }
-
-        // Update is called once per frame
-        /*void Update()
-        {
-            transform.position = InputTracking.GetLocalPosition(XRNode.CenterEye); //* 2.0;
-            //transform.rotation
-        }*/
-
-
 
         void Update()
         {
-            //The headset initializes at Vector3.zero, and remains there during Start(), so initialize lastPos here
             if (lastPos == Vector3.zero) lastPos = transform.position;
             var offset = transform.position - lastPos;
             offset.y = 0;

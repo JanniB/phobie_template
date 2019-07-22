@@ -8,8 +8,6 @@ public class objectiveFearZone : MonoBehaviour
 {
     public GameObjectHandler objectHandler;
     public ControllerMovement controller;
-    public List<GameObject> objectiveFearList = new List<GameObject>();
-    public GameObject[] objectiveFearObjects;
     public GameObject prefab;
     public GameObject Controller;
     public Transform spawnPoint;
@@ -24,7 +22,7 @@ public class objectiveFearZone : MonoBehaviour
     {
         countdown.SetActive(false);
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (entered)
@@ -41,6 +39,7 @@ public class objectiveFearZone : MonoBehaviour
             }
         }
     }
+
     void OnTriggerEnter(Collider other)
     {
         StartCoroutine(Delay());

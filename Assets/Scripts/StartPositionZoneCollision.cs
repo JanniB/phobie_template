@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +25,7 @@ public class StartPositionZoneCollision : MonoBehaviour
     {
         countdown.SetActive(false);
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (entered)
@@ -44,12 +43,8 @@ public class StartPositionZoneCollision : MonoBehaviour
         }
     }
 
-
         void OnTriggerEnter(Collider other)
     {
-        //entered = true;
-        //Debug.Log("entered startzone + level: " + levelManager.getLevel());
-        //timeout 3s
         isWaiting = true;
         countdownFinished = false;
 
@@ -61,7 +56,6 @@ public class StartPositionZoneCollision : MonoBehaviour
 
         if(levelManager.getLevel() < 7)
         {
-            Debug.Log("LEvel > 7 display Terrarium");
             objectHandler.displayTerrarium();
         }else{
             objectHandler.fearobjectZone.SetActive(true);
@@ -80,44 +74,36 @@ public class StartPositionZoneCollision : MonoBehaviour
         time = 5f;
         countdown.SetActive(false);
         isWaiting = false;
-        //Debug.Log("exit StartPositionZone");
-        //wird ausgeblendet in startConfigRoom daher nie aufgerufen
     }
+
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(1);
         entered = true;
         StartCoroutine(WaitCallNextLevel());
-
     }
+
     IEnumerator WaitCallNextLevel()
     {
-        
         yield return new WaitForSeconds(5);
         countdownFinished = true;
-        Debug.Log("5 seconds passed");
         if (isWaiting && entered)
         {
             if(levelManager.getLevel() == 0)
             {
                 levelManager.setLevel(fearManager.calculateFearLevel());
                 levelManager.callNextLevel(fearManager.calculateFearLevel());
-                Debug.Log("TEEESCHDJ: " + levelManager.getLevel());
-                objectHandler.setCurrentFearObject(levelManager.getLevel());
             }
             else if (levelManager.getLevel() == 8)
             {
-                //Debug.Log("spinnen instanz");
                 var Instance = Instantiate(spiderPrefab, spawnPoint.position, spawnPoint.rotation);
                 Instance.transform.parent = Spider8.transform;
                 levelManager.callNextLevel(levelManager.getLevel());
             }
             else{
-                levelManager.callNextLevel(levelManager.getLevel()); //WURDE GEÄNDERT SPNST HIER RÜCKGÄNGG RAUS AUS ELSE
+                levelManager.callNextLevel(levelManager.getLevel());
             }
-            Debug.Log("lashdfl: " + levelManager.getLevel());
             therapyZoneCol.levelIsRunning = true;
-            //Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
             objectHandler.crossMarker.SetActive(false);
         } 
     }

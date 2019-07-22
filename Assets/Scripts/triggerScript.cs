@@ -6,13 +6,10 @@ public class triggerScript : MonoBehaviour
 {
     public int objectiveLevel;
 
-    // Start is called before the first frame update
     void Start()
     {
-
     }
 
-    // Update is called once per frame
     void Update()
     {
     }
@@ -21,7 +18,6 @@ public class triggerScript : MonoBehaviour
     {
         if (other == GameObject.FindWithTag("trigger3")){
             setObjectiveLevel(3);
-            Debug.Log("trigger3 " + getObjectiveLevel());
         }
         else if(other == GameObject.FindWithTag("trigger2")){
             setObjectiveLevel(2);
@@ -38,5 +34,4 @@ public class triggerScript : MonoBehaviour
     public int getObjectiveLevel(){
         return objectiveLevel;
     }
-
 }
