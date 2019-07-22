@@ -14,7 +14,7 @@ public class NextLevelZoneCollision : MonoBehaviour
 
     public Text countDown;
     public GameObject countdown;
-    private float time = 6f;
+    private float time = 5f;
     private bool entered = false;
 
     void Start()
@@ -41,31 +41,43 @@ public class NextLevelZoneCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        entered = true;
+        //entered = true;
         //5s
         isWaiting = true;
-        StartCoroutine(WaitCallNextLevel());
+        StartCoroutine(Delay());
        //startConfig.configRoom();
     }
 
     private void OnTriggerExit(Collider other)
     {
         entered = false;
-        time = 6f;
+        time = 5f;
+        countdown.SetActive(false);
         isWaiting = false;
         //wird ausgeblendet in startConfigRoom daher nie aufgerufen
-        Debug.Log("exit NextLevelZone");
+        //Debug.Log("exit NextLevelZone");
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1);
+        entered = true;
+        StartCoroutine(WaitCallNextLevel());
+
     }
 
     IEnumerator WaitCallNextLevel()
     {
         yield return new WaitForSeconds(5);
-        Debug.Log("5 seconds passed");
-        if (isWaiting)
+        //Debug.Log("5 seconds passed");
+        if (isWaiting && entered)
         {
             startConfig.configRoom();
+            objectHandler.showWayBack();
+            Destroy(GameObject.FindWithTag("fearobject"));
+
             therapyZoneCol.levelIsRunning = false;
-            Debug.Log("level is not running" + therapyZoneCol.levelIsRunning);
+            //Debug.Log("level is not running" + therapyZoneCol.levelIsRunning);
         }
        
     }

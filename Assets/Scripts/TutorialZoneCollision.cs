@@ -33,7 +33,7 @@ public class TutorialZoneCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entered Tutorialzone");
+        //Debug.Log("Entered Tutorialzone");
         //objective Fear display
     }
 
@@ -41,7 +41,7 @@ public class TutorialZoneCollision : MonoBehaviour
     {
         tutorialZone.SetActive(false);
         Destroy(tutorialZone);
-        Debug.Log("Left Tutorialzone");
+        //Debug.Log("Left Tutorialzone");
 
     }
 

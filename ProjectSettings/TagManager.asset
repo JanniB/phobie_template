@@ -21,6 +21,11 @@ TagManager:
   - fearlevel3
   - fearDistance
   - fearGates
+  - curvedArrow
+  - controller
+  - trigger1
+  - trigger2
+  - trigger3
   layers:
   - Default
   - TransparentFX

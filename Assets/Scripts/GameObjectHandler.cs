@@ -15,6 +15,11 @@ public class GameObjectHandler: MonoBehaviour
     public GameObject objectiveFear;
     public GameObject therapyZone;
     public GameObject fearobjectZone;
+    public GameObject curvedArrow;
+    public GameObject curvedArrowNextLevel;
+    public GameObject uturnArrow;
+
+
 
     public List<GameObject> fearObjectList = new List<GameObject>();
     public List<GameObject> objectiveFearList = new List<GameObject>();
@@ -93,6 +98,21 @@ public class GameObjectHandler: MonoBehaviour
     public void displayFearobjectZone(){
         this.fearobjectZone.SetActive(true);
     }
+    public void hideCurvedArrow(){
+        this.curvedArrow.SetActive(false);
+    }
+    public void showCurvedArrow(){
+        this.curvedArrow.SetActive(true);
+    }
+    public void hideWayBack(){
+        this.uturnArrow.SetActive(false);
+        this.curvedArrowNextLevel.SetActive(false);
+    }
+    public void showWayBack()
+    {
+        this.uturnArrow.SetActive(true);
+        this.curvedArrowNextLevel.SetActive(true);
+    }
 
 
 
@@ -128,12 +148,12 @@ public class GameObjectHandler: MonoBehaviour
         if (currentFearObject == fearObjectList.Count)
         {
 
-            Debug.Log("Congratulations, you finished therapy!");
+            //Debug.Log("Congratulations, you finished therapy!");
             //therapie beendet
         } 
             fearObjects[0].SetActive(true);
             fearObjects[currentFearObject].SetActive(true);
-            Debug.Log("current fear Object set to: " + currentFearObject);
+            //Debug.Log("current fear Object set to: " + currentFearObject);
     }
 
     public int getFearObjectCount()

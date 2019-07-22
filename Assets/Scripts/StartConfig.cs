@@ -9,7 +9,7 @@ public class StartConfig : MonoBehaviour
     void Start()
     {
         startConfigRoom();
-        Debug.Log("StartConfiguration");
+        //Debug.Log("StartConfiguration");
     }
 
     // Update is called once per frame
@@ -26,12 +26,13 @@ public class StartConfig : MonoBehaviour
         objectHandler.displaySubjectiveFear();
         objectHandler.therapyZone.SetActive(false);
         objectHandler.fearobjectZone.SetActive(false);
+        objectHandler.hideCurvedArrow();
+        objectHandler.hideWayBack();
     }
 
     public void configRoom()
     {
         objectHandler.resetRoom();
         objectHandler.startPositionZone.SetActive(true);
-
     }
 }

@@ -40,14 +40,14 @@ public class TherapyZoneCollision : MonoBehaviour
         if(levelIsRunning == true)
         {
             int levelrunning = levelManager.getLevel()-1;
-            Debug.Log("level is running" + levelrunning);
+            //Debug.Log("level is running " + levelrunning);
             levelManager.callNextLevel(levelrunning);
         }
         else if (levelIsRunning == false)
         {
             startConfig.configRoom();
             levelManager.setLevel(levelManager.getLevel());
-            Debug.Log("level is not running");
+            //Debug.Log("level is not running");
 
         }
 
@@ -56,7 +56,7 @@ public class TherapyZoneCollision : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        Debug.Log("entered Safety Area");
+        //Debug.Log("entered Safety Area");
         startConfig.configRoom();
 
         //step muss einen zähler zurück gesetzt werden

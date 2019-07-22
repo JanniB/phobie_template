@@ -13,10 +13,11 @@ public class objectiveFearZone : MonoBehaviour
     public GameObject prefab;
     public GameObject Controller;
     public Transform spawnPoint;
+    public StartConfig startConfig;
 
     public Text countDown;
     public GameObject countdown;
-    private float time = 3f;
+    private float time = 5f;
     private bool entered = false;
 
     void Start()
@@ -42,28 +43,42 @@ public class objectiveFearZone : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        entered = true;
-        StartCoroutine(WaitObjectiveFear());
-        Debug.Log("entered objective fear zone");
+        StartCoroutine(Delay());
+        //entered = true;
+        //StartCoroutine(WaitObjectiveFear());
+        //Debug.Log("entered objective fear zone");
     }
 
     private void OnTriggerExit(Collider other)
     {
         entered = false;
-        time = 3f;
+        countdown.SetActive(false);
+        time = 5f;
         var fearDistance = GameObject.FindGameObjectWithTag("fearDistance");
         fearDistance.SetActive(false);
         this.gameObject.SetActive(false);
         controller.calculateDistance();
+        objectHandler.showCurvedArrow();
         objectHandler.displayStartPositionZone();
-        Debug.Log("exit objectiveFearZone");
+        startConfig.configRoom();
+        //Debug.Log("exit objectiveFearZone");
+    }
+
+    IEnumerator Delay(){
+        yield return new WaitForSeconds(3);
+        entered = true;
+        StartCoroutine(WaitObjectiveFear());
+
     }
 
     IEnumerator WaitObjectiveFear()
     {
-        yield return new WaitForSeconds(3);
-        var Instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
-        Instance.transform.parent = Controller.transform;
+        yield return new WaitForSeconds(5);
+        if(entered){
+            var Instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+            Instance.transform.parent = Controller.transform;
+        }
+
 
     }
     

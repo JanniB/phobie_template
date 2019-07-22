@@ -21,7 +21,7 @@ public class FearManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Debug.Log("test");
+        //Debug.Log("test");
         fear1 = GameObject.FindWithTag("fearlevel1");
         fear2 = GameObject.FindWithTag("fearlevel2");
         fear3 = GameObject.FindWithTag("fearlevel3");
@@ -55,30 +55,30 @@ public class FearManager : MonoBehaviour
 
     public int calculateFearLevel()
     {
-        Debug.Log("test calclevel");
-        objectiveFear = controller.getFearDistance();
-        fearRes = (subjectiveFear + objectiveFear)/2;
-        fearRes = (float) Math.Round(fearRes, 0);
-        Debug.Log("fear calculated in int: " + fearRes);
-        return (int) fearRes;
+        //Debug.Log("test calclevel");
+        //objectiveFear = controller.getFearDistance();
+        //fearRes = (subjectiveFear + objectiveFear)/2;
+        //fearRes = (float) Math.Round(fearRes, 0);
+        //Debug.Log("fear calculated in int: " + fearRes);
+        //return (int) fearRes;
+        fearRes = getSubjectiveFear();
+            return (int)fearRes;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger enter");
-
         if (other.CompareTag("fearlevel1")) {
             setSubjectiveFear(1);
-            Debug.Log("trigger fearlevel set to 1>1");
+            //Debug.Log("trigger fearlevel set to 1>1");
         }
         else if (other.CompareTag("fearlevel2")) {
             setSubjectiveFear(3);
-            Debug.Log(" trigger fearlevel set to 2>3");
+            //Debug.Log(" trigger fearlevel set to 2>3");
         }
         else if (other.CompareTag("fearlevel3"))
         {
             setSubjectiveFear(5);
-            Debug.Log(" trigger fearlevel set to 3>5");
+            //Debug.Log(" trigger fearlevel set to 3>5");
         }
     }
 
@@ -86,10 +86,10 @@ public class FearManager : MonoBehaviour
     {
        if(other.CompareTag("fearlevel1")|| other.CompareTag("fearlevel2") || other.CompareTag("fearlevel3"))
         {
-            Debug.Log("trigger gate passed: " + getSubjectiveFear());
+            //Debug.Log("trigger gate passed: " + getSubjectiveFear());
         }
         Destroy(gameObjectHandler.subjectiveFear);
-        Debug.Log("trigger exit");
+        //Debug.Log("trigger exit");
 
     }
 }

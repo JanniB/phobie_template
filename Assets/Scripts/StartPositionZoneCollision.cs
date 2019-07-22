@@ -18,8 +18,9 @@ public class StartPositionZoneCollision : MonoBehaviour
 
     public Text countDown;
     public GameObject countdown;
-    private float time = 6f;
+    private float time = 5f;
     private bool entered = false;
+    private bool countdownFinished = false;
 
     void Start()
     {
@@ -46,53 +47,72 @@ public class StartPositionZoneCollision : MonoBehaviour
 
         void OnTriggerEnter(Collider other)
     {
-        entered = true;
-        Debug.Log("entered startzone + level: " + levelManager.getLevel());
+        //entered = true;
+        //Debug.Log("entered startzone + level: " + levelManager.getLevel());
         //timeout 3s
         isWaiting = true;
+        countdownFinished = false;
+
         objectHandler.therapyZone.SetActive(true);
         objectHandler.displayCrossMarker();
-        StartCoroutine(WaitCallNextLevel());
+        StartCoroutine(Delay());
+        objectHandler.hideCurvedArrow();
+        objectHandler.hideWayBack();
 
         if(levelManager.getLevel() < 7)
         {
             Debug.Log("LEvel > 7 display Terrarium");
             objectHandler.displayTerrarium();
+        }else{
+            objectHandler.fearobjectZone.SetActive(true);
         }
 
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if(!countdownFinished){
+            objectHandler.crossMarker.SetActive(false);
+            objectHandler.terrarium.SetActive(false);
+            objectHandler.fearobjectZone.SetActive(false);
+        }
         entered = false;
-        time = 6f;
+        time = 5f;
+        countdown.SetActive(false);
         isWaiting = false;
-        Debug.Log("exit StartPositionZone");
+        //Debug.Log("exit StartPositionZone");
         //wird ausgeblendet in startConfigRoom daher nie aufgerufen
     }
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1);
+        entered = true;
+        StartCoroutine(WaitCallNextLevel());
 
+    }
     IEnumerator WaitCallNextLevel()
     {
         
         yield return new WaitForSeconds(5);
+        countdownFinished = true;
         Debug.Log("5 seconds passed");
-        if (isWaiting)
+        if (isWaiting && entered)
         {
             if(levelManager.getLevel() == 0)
             {
                 levelManager.setLevel(fearManager.calculateFearLevel());
-                
             }
             else if (levelManager.getLevel() == 8)
             {
-                Debug.Log("spinnen instanz");
+                //Debug.Log("spinnen instanz");
                 var Instance = Instantiate(spiderPrefab, spawnPoint.position, spawnPoint.rotation);
                 Instance.transform.parent = Spider8.transform;
+                Instance.tag = "test";
             }
             levelManager.callNextLevel(levelManager.getLevel());
             therapyZoneCol.levelIsRunning = true;
-            Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
+            //Debug.Log("level is running" + therapyZoneCol.levelIsRunning);
             objectHandler.crossMarker.SetActive(false);
-        }
+        } 
     }
 }

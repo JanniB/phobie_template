@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public NextLevelZoneCollision nextLevelZoneCollision;
     public StartPositionZoneCollision startZoneCollision;
     public StartConfig startConfig;
+    public FearManager fearManager;
 
     // Use this for initialization
     void Start()
@@ -25,12 +26,12 @@ public class LevelManager : MonoBehaviour
     public void setLevel(int l)
     {
         level = l;
-        Debug.Log("Level is set to: " + level);
+        //Debug.Log("Level is set to: " + level);
     }
 
     public int getLevel()
     {
-        Debug.Log("Level: " + level);
+        //Debug.Log("Level: " + level);
         return level;
     }
 
@@ -40,30 +41,29 @@ public class LevelManager : MonoBehaviour
         switch (l)
         {
             case 1:
-                Debug.Log("Level " + level + l + "loading");
+                //Debug.Log("Level " + level + l + "loading");
                 objectHandler.setCurrentFearObject(level);
                 objectHandler.displayNextLevelZone();
                 objectHandler.displayTerrarium();
                 level++;
-                Debug.Log("set next level to " + level);
+                //Debug.Log("set next level to " + level);
                 break;
             case 2:
-
-                Debug.Log("Level " + level + l + "loading");
+                //Debug.Log("Level " + level + l + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
                 objectHandler.displayTerrarium();
                 level++;
                 break;
             case 3:
-                Debug.Log("Level " + level + "loading");
+                //Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
                 objectHandler.displayTerrarium();
                 level++;
                 break;
             case 4:
-                Debug.Log("Level " + level + "loading");
+                //Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
                 objectHandler.displayTerrarium();
@@ -77,29 +77,26 @@ public class LevelManager : MonoBehaviour
                 level++;
                 break;
             case 6:
-                Debug.Log("Level " + level + "loading");
+                //Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.setCurrentFearObject(level);
                 objectHandler.displayTerrarium();
                 level++;
                 break;
             case 7:
-                Debug.Log("Level " + level + "loading");
+                //Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.terrarium.SetActive(false);
                 objectHandler.fearobjectZone.SetActive(true);
-                //TODO zone auf boden einblenden
                 objectHandler.setCurrentFearObject(level);
                 level++;
                 break;
             case 8:
-                Debug.Log("Level " + level + "loading");
+                //Debug.Log("Level " + level + "loading");
                 objectHandler.displayNextLevelZone();
                 objectHandler.terrarium.SetActive(false);
                 objectHandler.fearobjectZone.SetActive(true);
-                //TODO zone auf boden einblenden
                 objectHandler.setCurrentFearObject(level);
-
                 level++;
                 break;
                 //TODO weitere steps
