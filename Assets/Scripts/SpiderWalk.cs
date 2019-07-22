@@ -26,7 +26,7 @@ public class SpiderWalk : MonoBehaviour
         {
            //Debug.Log("TESTETSESTSSETSTSETSTSET" + gameObjectHandler.getCurrentFearObjectNr());
             radius = 0.9f;
-            rotateSpeed = 3.7f;
+            rotateSpeed = 4f;
 }
     }
 
