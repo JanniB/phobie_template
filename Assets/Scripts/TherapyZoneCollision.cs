@@ -10,6 +10,10 @@ public class TherapyZoneCollision : MonoBehaviour
     public NextLevelZoneCollision nextlevelCol;
     public int aktuellerStep;
     public bool levelIsRunning;
+    GameObject test;
+    public GameObject spiderPrefab;
+    public GameObject Spider8;
+    public Transform spawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,12 @@ public class TherapyZoneCollision : MonoBehaviour
         {
             int levelrunning = levelManager.getLevel()-1;
             levelManager.callNextLevel(levelrunning);
+            if( levelManager.getLevel()-1 == 8){
+                Destroy(startzoneCol.test);
+                var Instance = Instantiate(spiderPrefab, spawnPoint.position, spawnPoint.rotation);
+                Instance.transform.parent = Spider8.transform;
+                test = Instance;
+            }
         }
         else if (levelIsRunning == false)
         {
@@ -39,6 +49,8 @@ public class TherapyZoneCollision : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         startConfig.configRoom();
+        Destroy(startzoneCol.test);
+        Destroy(test);
     }
 }
 

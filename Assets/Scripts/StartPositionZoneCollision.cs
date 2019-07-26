@@ -14,6 +14,7 @@ public class StartPositionZoneCollision : MonoBehaviour
     public GameObject spiderPrefab;
     public GameObject Spider8;
     public Transform spawnPoint;
+    public GameObject test;
 
     public Text countDown;
     public GameObject countdown;
@@ -98,6 +99,7 @@ public class StartPositionZoneCollision : MonoBehaviour
             {
                 var Instance = Instantiate(spiderPrefab, spawnPoint.position, spawnPoint.rotation);
                 Instance.transform.parent = Spider8.transform;
+                test = Instance;
                 levelManager.callNextLevel(levelManager.getLevel());
             }
             else{
