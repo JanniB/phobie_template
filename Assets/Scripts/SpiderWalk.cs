@@ -14,7 +14,7 @@ public class SpiderWalk : MonoBehaviour
     void Start()
     {
         center = spider.transform.position;
-        if (gameObjectHandler.getCurrentFearObjectNr() == 7 || gameObjectHandler.getCurrentFearObjectNr() == 8)
+        if (gameObjectHandler.getCurrentFearObjectNr() > 6)
         {
             radius = 0.9f;
             rotateSpeed = 4f;

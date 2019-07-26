@@ -1081,8 +1081,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241640919}
   m_LocalRotation: {x: -0, y: 0.70710504, z: -0, w: 0.7071086}
-  m_LocalPosition: {x: -0.421, y: 0, z: -24.74}
-  m_LocalScale: {x: 45.40847, y: 1, z: 0.0151515175}
+  m_LocalPosition: {x: -0.421, y: 0, z: -26.27}
+  m_LocalScale: {x: 42.241688, y: 1, z: 0.0151515175}
   m_Children: []
   m_Father: {fileID: 84401848}
   m_RootOrder: 1
@@ -1670,7 +1670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359587190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 0.5, y: 1.6, z: 0.5}
   m_Children: []
   m_Father: {fileID: 616737342}
@@ -2407,7 +2407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400030, guid: fe2549478f0154954ab6fe49607aac85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1085
+      value: 0.1074
       objectReference: {fileID: 0}
     - target: {fileID: 400030, guid: fe2549478f0154954ab6fe49607aac85, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2455,15 +2455,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400112, guid: fe2549478f0154954ab6fe49607aac85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.05
+      value: -23.14
       objectReference: {fileID: 0}
     - target: {fileID: 400112, guid: fe2549478f0154954ab6fe49607aac85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.08
+      value: -2.06
       objectReference: {fileID: 0}
     - target: {fileID: 400112, guid: fe2549478f0154954ab6fe49607aac85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.93
+      value: 4.75
       objectReference: {fileID: 0}
     - target: {fileID: 400112, guid: fe2549478f0154954ab6fe49607aac85, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3516,6 +3516,7 @@ MonoBehaviour:
     type: 3}
   Spider8: {fileID: 1278952937}
   spawnPoint: {fileID: 2079814848}
+  test: {fileID: 0}
   countDown: {fileID: 2059250438}
   countdown: {fileID: 2059250436}
 --- !u!4 &587676157 stripped
@@ -5997,6 +5998,10 @@ MonoBehaviour:
   nextlevelCol: {fileID: 1841482719}
   aktuellerStep: 0
   levelIsRunning: 0
+  spiderPrefab: {fileID: 8880574524896511646, guid: 2f27d96951bcc43888b3ca28a0414f38,
+    type: 3}
+  Spider8: {fileID: 1278952937}
+  spawnPoint: {fileID: 2079814848}
 --- !u!1 &1025747156
 GameObject:
   m_ObjectHideFlags: 0
@@ -7023,7 +7028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.256897
+      value: -3.26
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -10277,8 +10282,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769602745}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0839, y: 0, z: 8.82}
-  m_LocalScale: {x: 0.7133681, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0892, y: 0, z: 8.82}
+  m_LocalScale: {x: 0.7016189, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 84401848}
   m_RootOrder: 3
@@ -12236,7 +12241,7 @@ PrefabInstance:
     - target: {fileID: 8880574524896091006, guid: 2f27d96951bcc43888b3ca28a0414f38,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.769
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 8880574524896091006, guid: 2f27d96951bcc43888b3ca28a0414f38,
         type: 3}
