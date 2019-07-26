@@ -73,6 +73,9 @@ public class objectiveFearZone : MonoBehaviour
         if(entered){
             var Instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
             Instance.transform.parent = Controller.transform;
+            Instance.transform.localPosition -= new Vector3(10.0f, 0.0f, 0.0f);
+            //var Instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+            //Instance.transform.parent = Controller.transform;
         }
     }
 

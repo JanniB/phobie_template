@@ -27,7 +27,6 @@ public class TherapyZoneCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entered Therapiezone");
         if(levelIsRunning == true)
         {
             int levelrunning = levelManager.getLevel()-1;
